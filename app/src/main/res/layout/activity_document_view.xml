@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.DocumentViewActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        app:title="Văn bản"
+        app:titleTextColor="@color/black"
+        android:background="@color/white"
+        android:id="@+id/toolbar_DocumentView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:titleTextAppearance="@style/Toolbar.TitleText"
+        android:theme="@style/ToolBarThemeTwo"></androidx.appcompat.widget.Toolbar>
+
+    <com.github.barteksc.pdfviewer.PDFView
+        android:id="@+id/pdfvewer"
+        android:layout_below="@+id/toolbar_DocumentView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </com.github.barteksc.pdfviewer.PDFView>
+
+    <ProgressBar
+        android:id="@+id/progressbar"
+        android:indeterminate="true"
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+    </ProgressBar>
+</RelativeLayout>

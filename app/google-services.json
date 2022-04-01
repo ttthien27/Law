@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "947510090790",
-    "project_id": "queue-eb51b",
-    "storage_bucket": "queue-eb51b.appspot.com"
+    "project_number": "435144988345",
+    "project_id": "appphapluat",
+    "storage_bucket": "appphapluat.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:947510090790:android:a1b0f540a0992906389ae7",
+        "mobilesdk_app_id": "1:435144988345:android:141e9d13695df955d4ed68",
         "android_client_info": {
-          "package_name": "com.android.queue"
+          "package_name": "com.android.Law"
         }
       },
       "oauth_client": [
         {
-          "client_id": "947510090790-rrg1u4qtkgnus4i4cv9aeaij20fce78h.apps.googleusercontent.com",
+          "client_id": "435144988345-65l75nbovkkb6vk710hcfd46siadef4k.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBAjSsPcoYc-YaDhMDRBNs96Q7LBs3yXbI"
+          "current_key": "AIzaSyDF7ZtfE-K9v7BDaUKWJ241P57SVL0045E"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "947510090790-rrg1u4qtkgnus4i4cv9aeaij20fce78h.apps.googleusercontent.com",
+              "client_id": "435144988345-65l75nbovkkb6vk710hcfd46siadef4k.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

@@ -49,20 +49,68 @@
         <entry key="..\:/D/LTDD_DoAn/Queue/app/src/main/res/layout/fragment_participant_list.xml" value="0.182518115942029" />
         <entry key="..\:/D/LTDD_DoAn/Queue/app/src/main/res/layout/item_participant.xml" value="0.2078804347826087" />
         <entry key="..\:/Do An/PhapLuat/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
+        <entry key="..\:/Do An/PhapLuat/app/src/main/res/drawable-xxhdpi/btn_one.xml" value="0.2" />
+        <entry key="..\:/Do An/PhapLuat/app/src/main/res/drawable-xxhdpi/btn_top.xml" value="0.173" />
+        <entry key="..\:/Do An/PhapLuat/app/src/main/res/drawable-xxhdpi/btnscan.xml" value="0.199" />
+        <entry key="..\:/Do An/PhapLuat/app/src/main/res/drawable-xxhdpi/ic_email.xml" value="0.173" />
+        <entry key="..\:/Do An/PhapLuat/app/src/main/res/drawable-xxhdpi/ic_lock.xml" value="0.173" />
+        <entry key="..\:/Do An/PhapLuat/app/src/main/res/drawable-xxhdpi/ic_login_bg.xml" value="0.173" />
+        <entry key="..\:/Do An/PhapLuat/app/src/main/res/drawable-xxhdpi/login_btn_bg.xml" value="0.173" />
+        <entry key="..\:/Do An/PhapLuat/app/src/main/res/drawable-xxhdpi/search_layout.xml" value="0.196" />
         <entry key="..\:/Do An/PhapLuat/app/src/main/res/drawable/avatar_none.xml" value="0.1215" />
+        <entry key="..\:/Do An/PhapLuat/app/src/main/res/drawable/bg_color_one.xml" value="0.1475" />
+        <entry key="..\:/Do An/PhapLuat/app/src/main/res/drawable/bg_color_three.xml" value="0.2" />
+        <entry key="..\:/Do An/PhapLuat/app/src/main/res/drawable/bg_color_two.xml" value="0.2" />
+        <entry key="..\:/Do An/PhapLuat/app/src/main/res/drawable/bg_shape_imguser.xml" value="0.192" />
+        <entry key="..\:/Do An/PhapLuat/app/src/main/res/drawable/bg_shape_one.xml" value="0.2" />
+        <entry key="..\:/Do An/PhapLuat/app/src/main/res/drawable/bg_shape_two.xml" value="0.2" />
+        <entry key="..\:/Do An/PhapLuat/app/src/main/res/drawable/btn_bg.xml" value="0.2" />
+        <entry key="..\:/Do An/PhapLuat/app/src/main/res/drawable/btn_transparent.xml" value="0.2" />
         <entry key="..\:/Do An/PhapLuat/app/src/main/res/drawable/btnscan.xml" value="0.1" />
         <entry key="..\:/Do An/PhapLuat/app/src/main/res/drawable/ic_archive.xml" value="0.1" />
+        <entry key="..\:/Do An/PhapLuat/app/src/main/res/drawable/ic_baseline_category_24.xml" value="0.199" />
+        <entry key="..\:/Do An/PhapLuat/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.173" />
+        <entry key="..\:/Do An/PhapLuat/app/src/main/res/drawable/ic_email.xml" value="0.2" />
+        <entry key="..\:/Do An/PhapLuat/app/src/main/res/drawable/ic_facebook.xml" value="0.2" />
+        <entry key="..\:/Do An/PhapLuat/app/src/main/res/drawable/ic_google.xml" value="0.2" />
         <entry key="..\:/Do An/PhapLuat/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.1" />
+        <entry key="..\:/Do An/PhapLuat/app/src/main/res/drawable/ic_person.xml" value="0.192" />
+        <entry key="..\:/Do An/PhapLuat/app/src/main/res/drawable/ic_security.xml" value="0.192" />
+        <entry key="..\:/Do An/PhapLuat/app/src/main/res/drawable/input_bg.xml" value="0.2" />
+        <entry key="..\:/Do An/PhapLuat/app/src/main/res/drawable/login_btn_bg_two.xml" value="0.192" />
         <entry key="..\:/Do An/PhapLuat/app/src/main/res/drawable/outline_done_24.xml" value="0.1" />
         <entry key="..\:/Do An/PhapLuat/app/src/main/res/drawable/outline_family_restroom_24.xml" value="0.1" />
         <entry key="..\:/Do An/PhapLuat/app/src/main/res/drawable/outline_location_on_24.xml" value="0.1" />
         <entry key="..\:/Do An/PhapLuat/app/src/main/res/drawable/outline_person_24.xml" value="0.1" />
         <entry key="..\:/Do An/PhapLuat/app/src/main/res/drawable/outline_room_24.xml" value="0.1" />
-        <entry key="..\:/Do An/PhapLuat/app/src/main/res/font/work_sans.xml" value="0.1" />
+        <entry key="..\:/Do An/PhapLuat/app/src/main/res/drawable/shape_left_panel.xml" value="0.173" />
+        <entry key="..\:/Do An/PhapLuat/app/src/main/res/drawable/switch_tumbs.xml" value="0.2" />
+        <entry key="..\:/Do An/PhapLuat/app/src/main/res/drawable/textlines.xml" value="0.176" />
+        <entry key="..\:/Do An/PhapLuat/app/src/main/res/drawable/textlines_two.xml" value="0.1635" />
+        <entry key="..\:/Do An/PhapLuat/app/src/main/res/font/nunito_bold.xml" value="0.23489583333333333" />
+        <entry key="..\:/Do An/PhapLuat/app/src/main/res/font/work_sans.xml" value="0.2" />
         <entry key="..\:/Do An/PhapLuat/app/src/main/res/font/work_sans_bold.xml" value="0.1" />
         <entry key="..\:/Do An/PhapLuat/app/src/main/res/font/work_sans_medium.xml" value="0.1" />
         <entry key="..\:/Do An/PhapLuat/app/src/main/res/font/work_sans_semibold.xml" value="0.1" />
-        <entry key="..\:/Do An/PhapLuat/app/src/main/res/layout/activity_main.xml" value="0.1322463768115942" />
+        <entry key="..\:/Do An/PhapLuat/app/src/main/res/layout/activity_document_view.xml" value="0.152" />
+        <entry key="..\:/Do An/PhapLuat/app/src/main/res/layout/activity_login.xml" value="0.4" />
+        <entry key="..\:/Do An/PhapLuat/app/src/main/res/layout/activity_main.xml" value="0.176" />
+        <entry key="..\:/Do An/PhapLuat/app/src/main/res/layout/activity_register.xml" value="0.4" />
+        <entry key="..\:/Do An/PhapLuat/app/src/main/res/layout/activity_search.xml" value="0.2" />
+        <entry key="..\:/Do An/PhapLuat/app/src/main/res/layout/activity_test_web_service.xml" value="0.264" />
+        <entry key="..\:/Do An/PhapLuat/app/src/main/res/layout/fragment_about.xml" value="0.12552083333333333" />
+        <entry key="..\:/Do An/PhapLuat/app/src/main/res/layout/fragment_account.xml" value="0.264" />
+        <entry key="..\:/Do An/PhapLuat/app/src/main/res/layout/fragment_dowload.xml" value="0.234375" />
+        <entry key="..\:/Do An/PhapLuat/app/src/main/res/layout/fragment_follow.xml" value="0.3208092485549133" />
+        <entry key="..\:/Do An/PhapLuat/app/src/main/res/layout/fragment_home.xml" value="0.536" />
+        <entry key="..\:/Do An/PhapLuat/app/src/main/res/layout/fragment_library.xml" value="0.43431221020092736" />
+        <entry key="..\:/Do An/PhapLuat/app/src/main/res/layout/fragment_news.xml" value="0.184375" />
+        <entry key="..\:/Do An/PhapLuat/app/src/main/res/layout/fragment_noti.xml" value="0.264" />
+        <entry key="..\:/Do An/PhapLuat/app/src/main/res/layout/fragment_seen.xml" value="0.234375" />
+        <entry key="..\:/Do An/PhapLuat/app/src/main/res/layout/fragment_suport.xml" value="0.1984375" />
+        <entry key="..\:/Do An/PhapLuat/app/src/main/res/layout/item_document.xml" value="0.4" />
+        <entry key="..\:/Do An/PhapLuat/app/src/main/res/menu/menu_toolbar.xml" value="0.25" />
+        <entry key="..\:/Do An/PhapLuat/app/src/main/res/menu/menu_toolbar_two.xml" value="0.234375" />
         <entry key="..\:/Do An/Queue/app/src/main/res/layout/activity_host.xml" value="0.25" />
         <entry key="..\:/Do An/Queue/app/src/main/res/layout/activity_inputkey.xml" value="0.25" />
         <entry key="..\:/Do An/Queue/app/src/main/res/layout/activity_lined_up.xml" value="0.25" />

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="Liên hệ"
+        android:id="@+id/menu_lienhe"/>
+
+    <item android:title="Về chúng tôi"
+        android:id="@+id/menu_about"/>
+
+    <item android:title="Cài đặt"
+        android:id="@+id/menu_setting"/>
+</menu>
