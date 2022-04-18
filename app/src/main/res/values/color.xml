@@ -22,7 +22,7 @@
 
     <color name="textColor">#ECE5EC</color>
     <color name="pinkColor">#FF003B</color>
-    <color name="tansparentColor">#00FFFFFF</color>
+    <color name="transparentColor">#00FFFFFF</color>
     <color name="reply_white_50">#ffffff</color>
 
     <color name="reply_black_900">#000000</color>
@@ -206,4 +206,7 @@
     <color name="colorPrimary">#382BEE</color>
     <color name="colorPrimaryDark_2">#0641B7</color>
     <color name="colorAccent_2">#80FFC4</color>
+    <color name="bg_cardView_one">#43ede1</color>
+    <color name="bg_cardView_two">#ffcd66</color>
+
 </resources>

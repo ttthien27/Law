@@ -22,6 +22,7 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.android.Law.R;
+import com.android.Law.activity.CategoryActivity;
 import com.android.Law.activity.DocumentViewActivity;
 import com.android.Law.activity.LoginActivity;
 import com.android.Law.activity.MainActivity;
@@ -48,6 +49,7 @@ public class HomeFragment extends Fragment {
     private ImageButton btn_Search;
     private ImageButton btn_More;
     private ImageButton btn_Support;
+    private ImageButton btn_Category;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -103,6 +105,7 @@ public class HomeFragment extends Fragment {
         btn_Search = view.findViewById(R.id.imgBtn_Home_search);
         btn_More = view.findViewById(R.id.imgBtn_Home_More);
         btn_Support = view.findViewById(R.id.imgBtn_Home_Support);
+        btn_Category = view.findViewById(R.id.imgBtn_Home_category);
 
         LinearLayoutManager linearLayoutManager=new LinearLayoutManager(mContext);
         recyclerView.setLayoutManager(linearLayoutManager);
@@ -141,6 +144,11 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        btn_Category.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {btnCategory(); }
+        });
+
         return view;
     }
 
@@ -161,6 +169,11 @@ public class HomeFragment extends Fragment {
 
     private void btnSupport(){
         Intent intent = new Intent(getActivity(), TestWebServiceActivity.class);
+        startActivity(intent);
+    }
+
+    private void btnCategory(){
+        Intent intent = new Intent(getActivity(), CategoryActivity.class);
         startActivity(intent);
     }
 

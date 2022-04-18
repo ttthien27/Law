@@ -23,6 +23,9 @@
         android:theme="@style/Theme.Law"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".activity.CategoryActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.TestWebServiceActivity"
             android:exported="false" />
         <activity

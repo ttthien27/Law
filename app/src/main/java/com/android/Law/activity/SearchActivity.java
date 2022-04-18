@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.android.Law.R;
@@ -35,6 +36,7 @@ import retrofit2.Response;
 public class SearchActivity extends AppCompatActivity {
 
     private RecyclerView recyclerSearch;
+    private ProgressBar progressBar;
     ImageButton btnSearch;
     DocumentAdapter documentAdapter_search;
     EditText editText;
@@ -56,7 +58,8 @@ public class SearchActivity extends AppCompatActivity {
         editText = findViewById(R.id.edittext_Search_Search);
         btnSearch = findViewById(R.id.imgBtn_Search_Search);
         recyclerSearch = findViewById(R.id.rv_search_follow);
-
+        progressBar = findViewById(R.id.proB_search);
+        progressBar.setVisibility(View.GONE);
         recyclerSearch.setLayoutManager(linearLayoutManager);
 
 
@@ -88,6 +91,7 @@ public class SearchActivity extends AppCompatActivity {
     }
 
     private void clickCallApishowDocument(){
+        progressBar.setVisibility(View.VISIBLE);
         query = new Query(editText.getText().toString());
         Log.d("Activity", "--------------: 3");
         ApiService.apiService.showDocument(query).enqueue(new Callback<List<Document>>() {
@@ -106,10 +110,12 @@ public class SearchActivity extends AppCompatActivity {
                 Log.d("Activity", "--------------: 6");
                 recyclerSearch.setAdapter(documentAdapter_search);
                 Log.d("Activity", "--------------: 7");
+                progressBar.setVisibility(View.GONE);
             }
 
             @Override
             public void onFailure(Call<List<Document>> call, Throwable t) {
+                progressBar.setVisibility(View.VISIBLE);
                 Log.d("----TestService_showDocument----", "onFailure: Fail" + t.toString());
             }
 

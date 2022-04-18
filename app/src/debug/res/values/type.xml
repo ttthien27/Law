@@ -90,7 +90,7 @@
     </style>
 
     <style name="ToolBarTheme" parent="ThemeOverlay.AppCompat.ActionBar">
-        <item name="android:tint">#FFFF</item>
+        <item name="android:tint">#DD000000</item>
     </style>
 
     <style name="ToolBarThemeTwo" parent="ThemeOverlay.AppCompat.ActionBar">
