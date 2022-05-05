@@ -47,6 +47,8 @@ public class CategoryActivity extends AppCompatActivity {
         adapter.addFrag(new CategoryFragment(query3), "Thuế");
         Query query4 = new Query("Bảo hiểm");
         adapter.addFrag(new CategoryFragment(query4), "Bảo hiểm");
+        Query query5 = new Query("Dân sự");
+        adapter.addFrag(new CategoryFragment(query4), "Dân sự");
         viewPager.setAdapter(adapter);
     }
 

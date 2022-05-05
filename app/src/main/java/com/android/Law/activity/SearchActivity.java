@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.android.Law.R;
 import com.android.Law.adapter.DocumentAdapter;
+import com.android.Law.adapter.DocumentSearchAdapter;
 import com.android.Law.api.ApiService;
 import com.android.Law.models.Document;
 import com.android.Law.models.Query;
@@ -38,7 +39,7 @@ public class SearchActivity extends AppCompatActivity {
     private RecyclerView recyclerSearch;
     private ProgressBar progressBar;
     ImageButton btnSearch;
-    DocumentAdapter documentAdapter_search;
+    DocumentSearchAdapter documentAdapter_search;
     EditText editText;
 
     LinearLayoutManager linearLayoutManager = new LinearLayoutManager(SearchActivity.this);
@@ -83,14 +84,14 @@ public class SearchActivity extends AppCompatActivity {
                     //list = getListDocument(arrayS);
 
 
-                    clickCallApishowDocument();
+                    clickCallAPIShowDocument();
 
                 }
             }
         });
     }
 
-    private void clickCallApishowDocument(){
+    private void clickCallAPIShowDocument(){
         progressBar.setVisibility(View.VISIBLE);
         query = new Query(editText.getText().toString());
         Log.d("Activity", "--------------: 3");
@@ -106,7 +107,7 @@ public class SearchActivity extends AppCompatActivity {
                 Log.d("----TestService_showDocument----", "onResponse: Success");
                 mess_receive = "Success";
                 Log.d("Activity", "--------------: 5");
-                documentAdapter_search = new DocumentAdapter(list);
+                documentAdapter_search = new DocumentSearchAdapter(list);
                 Log.d("Activity", "--------------: 6");
                 recyclerSearch.setAdapter(documentAdapter_search);
                 Log.d("Activity", "--------------: 7");
