@@ -1,16 +1,21 @@
 package com.android.Law.adapter;
 
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.Law.R;
+import com.android.Law.activity.DocumentViewActivity;
 import com.android.Law.models.Document;
 
 import java.util.ArrayList;
@@ -20,10 +25,17 @@ import java.util.Locale;
 public class DocumentSearchAdapter extends  RecyclerView.Adapter<DocumentSearchAdapter.DocumentSearchViewHolder>{
 
     private List<Document> documentSearchList;
+    private Context mContext;
 
     public DocumentSearchAdapter(List<Document> documentSearchList) {
         this.documentSearchList = documentSearchList;
     }
+
+    public DocumentSearchAdapter(Context mContext, List<Document> documentSearchList) {
+        this.documentSearchList = documentSearchList;
+        this.mContext = mContext;
+    }
+
 
     @NonNull
     @Override
@@ -59,13 +71,27 @@ public class DocumentSearchAdapter extends  RecyclerView.Adapter<DocumentSearchA
         for (String s:list) {
             Log.d("Adapter", "onBindViewHolder: "+s);
             s=s.replaceAll("_"," ");
-            String replaceWith = "<span style='background-color:yellow'>"
-                    + s + "</span>";
-            paraShort = paraShort.replaceAll(s,replaceWith);
+            String replaceWith =  " "+"<span style='background-color:yellow'>"
+                    + s + "</span>"+" ";
+            paraShort = paraShort.replaceAll(" "+s+" ",replaceWith);
         }
 
         holder.tv_Des.setText(desChange);
         holder.tv_ParaShort.setText(Html.fromHtml(paraShort));
+        holder.linearLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onClickGoToDetail(document);
+            }
+        });
+    }
+
+    private void onClickGoToDetail(Document document){
+        Intent intent = new Intent(mContext, DocumentViewActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("document",document);
+        intent.putExtras(bundle);
+        mContext.startActivity(intent);
     }
 
     @Override
@@ -89,10 +115,12 @@ public class DocumentSearchAdapter extends  RecyclerView.Adapter<DocumentSearchA
 
         private TextView tv_Des;
         private TextView tv_ParaShort;
+        private LinearLayout linearLayout;
         public DocumentSearchViewHolder(@NonNull View itemView) {
             super(itemView);
             tv_Des = itemView.findViewById(R.id.tv_des);
             tv_ParaShort = itemView.findViewById(R.id.tv_paraShort);
+            linearLayout = itemView.findViewById(R.id.layout_ItemDocumentSearch);
         }
     }
 }

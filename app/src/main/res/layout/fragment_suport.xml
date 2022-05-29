@@ -1,16 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/back_bg"
     tools:context=".fragment.SuportFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout
-        android:background="@drawable/bb"
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <androidx.appcompat.widget.Toolbar
+            app:title="Tư vấn"
+            app:titleTextColor="#d703082b"
+            android:background="@color/transparentColor"
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:titleTextAppearance="@style/Toolbar.TitleText"
+            android:theme="@style/ToolBarTheme"></androidx.appcompat.widget.Toolbar>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:orientation="vertical"
+                android:paddingLeft="30dp"
+                android:paddingRight="30dp"
+                android:paddingBottom="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/heading_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/nunito_bold"
+                    android:text="Đặt câu hỏi cho Law"
+                    android:textColor="#555555"
+                    android:textSize="24sp" />
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="350dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/blue_border_rounded_cornwe">
+
+                    <EditText
+                        android:id="@+id/edt_sp_advise"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
+                        android:gravity="top"
+                        android:paddingLeft="17dp"
+                        android:paddingRight="17dp"
+                        android:paddingTop="15dp"
+                        android:paddingBottom="15dp"
+                        android:inputType="text|textMultiLine"
+                        android:maxLines="8"
+                        android:textCursorDrawable="@drawable/cursor_color"
+                        android:textSize="12sp" />
+
+                </RelativeLayout>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_login_login"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="82dp"
+                    android:layout_marginTop="26dp"
+                    android:layout_marginRight="82dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@drawable/blue_fill__rounded_color"
+                    android:gravity="center"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:text="Gửi mail"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+        </ScrollView>
+
     </LinearLayout>
+
+
 
 </FrameLayout>

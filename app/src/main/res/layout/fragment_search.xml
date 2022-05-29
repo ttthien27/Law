@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.SearchFragment"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- TODO: Update blank fragment layout -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_Search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/transparentColor"
+            android:theme="@style/ToolBarTheme"
+            app:title="Tìm kiếm"
+            app:titleTextAppearance="@style/Toolbar.TitleText"
+            app:titleTextColor="#d703082b">
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <!--TextView
+            android:id="@+id/heading_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/nunito_bold"
+            android:text="Tìm kiếm pháp luật"
+            android:textColor="#555555"
+            android:textSize="24sp" /-->
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/edt_Search_Search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/toolbar_Search"
+            android:layout_alignStart="@+id/toolbar_Search"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_toStartOf="@+id/imgBtn_Search"
+            android:background="@drawable/search_layout"
+            android:ems="10"
+            android:fontFamily="@font/nunito_semibold"
+            android:hint="Tìm kiếm"
+            android:inputType="textPersonName"
+            android:paddingLeft="20dp"
+            android:paddingTop="10dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="10dp"
+            android:textColor="#999999"
+            android:textSize="16sp" />
+
+        <ImageButton
+            android:id="@+id/imgBtn_Search"
+            android:layout_width="41dp"
+            android:layout_height="40dp"
+            android:layout_alignTop="@+id/edt_Search_Search"
+            android:layout_alignBottom="@+id/edt_Search_Search"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/bg_color_four"
+            app:srcCompat="@drawable/ic_baseline_search_24" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_Search_Document"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/edt_Search_Search"
+            android:layout_marginTop="20dp"></androidx.recyclerview.widget.RecyclerView>
+        <ProgressBar
+            android:id="@+id/proB_Search"
+            android:indeterminate="true"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </ProgressBar>
+    </RelativeLayout>
+
+</FrameLayout>

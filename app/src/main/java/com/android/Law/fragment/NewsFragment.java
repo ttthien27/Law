@@ -1,5 +1,9 @@
 package com.android.Law.fragment;
 
+import android.app.Activity;
+import android.app.Dialog;
+import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,6 +11,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.Toast;
 
 import com.android.Law.R;
 
@@ -21,6 +27,9 @@ public class NewsFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    private Dialog dialog;
+    private Context mContext;
+    private Activity mActivity;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -28,6 +37,11 @@ public class NewsFragment extends Fragment {
 
     public NewsFragment() {
         // Required empty public constructor
+    }
+
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        mContext=context;
     }
 
     /**
@@ -61,6 +75,33 @@ public class NewsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_news, container, false);
+        View view = inflater.inflate(R.layout.fragment_news, container, false);
+
+        dialog = new Dialog(mContext);
+        dialog.setContentView(R.layout.custom_dialog_layout);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            dialog.getWindow().setBackgroundDrawable(getActivity().getDrawable(R.drawable.custom_dialog_background));
+        }
+        dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        dialog.setCancelable(false); //Optional
+        dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation; //Setting the animations to dialog
+
+        Button Okay = dialog.findViewById(R.id.btn_Cancel_Dialog);
+
+
+        Okay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Toast.makeText(mContext, "Okay", Toast.LENGTH_SHORT).show();
+                dialog.dismiss();
+            }
+        });
+
+
+        dialog.show();
+        return view;
     }
+
+
 }

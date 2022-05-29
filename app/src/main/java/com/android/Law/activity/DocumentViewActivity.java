@@ -4,31 +4,22 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import android.graphics.Color;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.android.Law.Data.LawSQLiteDao;
 import com.android.Law.R;
 import com.android.Law.models.Document;
-import com.github.barteksc.pdfviewer.PDFView;
-import com.github.barteksc.pdfviewer.listener.OnPageChangeListener;
-import com.github.barteksc.pdfviewer.listener.OnRenderListener;
-import com.github.barteksc.pdfviewer.listener.OnTapListener;
 import com.krishna.fileloader.FileLoader;
-import com.krishna.fileloader.listener.FileRequestListener;
-import com.krishna.fileloader.pojo.FileResponse;
-import com.krishna.fileloader.request.FileLoadRequest;
-
-import java.io.File;
 
 public class DocumentViewActivity extends AppCompatActivity {
 
@@ -44,7 +35,7 @@ public class DocumentViewActivity extends AppCompatActivity {
         webView.loadUrl("https://drive.google.com/file/d/1m4qWzuiLnbkTJTAO12_j5YQSCuqM4cXp/view?usp=sharing");
         //webView.loadUrl("https://drive.google.com/file/d/1m4qWzuiLnbkTJTAO12_j5YQSCuqM4cXp/view?usp=viewer");*/
 
-        PDFView pdfView = findViewById(R.id.pdfvewer);
+        /*PDFView pdfView = findViewById(R.id.pdfvewer);
         ProgressBar progressBar = findViewById(R.id.progressbar);
         Toolbar toolbar = findViewById(R.id.toolbar_DocumentView);
         setSupportActionBar(toolbar);
@@ -105,7 +96,7 @@ public class DocumentViewActivity extends AppCompatActivity {
 
 
                     }
-                });
+                });*/
 
         /*try {
             FileLoader.deleteWith(this).fromDirectory("PDFFiles", FileLoader.DIR_INTERNAL).deleteAllFiles();
@@ -114,6 +105,26 @@ public class DocumentViewActivity extends AppCompatActivity {
             e.printStackTrace();
             Log.d("DocumentViewActivity.this", "--------------: Ko xóa đc pdf");
         }*/
+
+        Bundle bundle = getIntent().getExtras();
+        if(bundle==null){
+            return;
+        }
+
+        Document document = (Document) bundle.get("document");
+
+        ProgressBar progressBar = findViewById(R.id.progressbar);
+        progressBar.setVisibility(View.VISIBLE);
+        Toolbar toolbar = findViewById(R.id.toolbar_DocumentView);
+        setSupportActionBar(toolbar);
+        WebView webView = findViewById(R.id.webviewer);
+        webView.setWebViewClient(new WebViewClient());
+        webView.getSettings().setSupportZoom(true);
+        webView.getSettings().setJavaScriptEnabled(true);
+        webView.loadUrl(document.getDocUrl());
+        //webView.loadUrl("https://drive.google.com/file/d/1m4qWzuiLnbkTJTAO12_j5YQSCuqM4cXp/view?usp=viewer");
+        progressBar.setVisibility(View.GONE);
+
     }
 
     @Override
@@ -128,7 +139,15 @@ public class DocumentViewActivity extends AppCompatActivity {
         int id = item.getItemId();
         switch (id){
             case R.id.menu_follow:
-                Toast.makeText(DocumentViewActivity.this,"Thêm theo dõi",Toast.LENGTH_LONG).show();
+
+                Document document = new Document("2122","https://thuvienphapluat.vn/van-ban/Lao-dong-Tien-luong/Quyet-dinh-81-2005-QD-UB-che-do-phu-cap-can-bo-cong-chuc-doi-y-te-du-phong-tuyen-quan-huyen-tram-y-te-phuong-xa-thi-tran-2143.aspx","QUYẾT ĐỊNH",
+                        "VỀ CHẾ ĐỘ PHỤ CẤP ĐỐI VỚI CÁN BỘ, CÔNG CHỨC ĐỘI Y TẾ DỰ PHÒNG TUYẾN QUẬN – HUYỆN VÀ TRẠM Y TẾ PHƯỜNG – XÃ, THỊ TRẤN");
+                boolean result = LawSQLiteDao.addDocumentFollow(DocumentViewActivity.this,document);
+                if (result){
+                    Toast.makeText(DocumentViewActivity.this,"Đã thêm theo dõi",Toast.LENGTH_LONG).show();
+                }else
+                //Log.d("DocumentViewActivity", "onOptionsItemSelected: Them Follow: "+ result);
+                Toast.makeText(DocumentViewActivity.this,"Chưa thêm theo dõi",Toast.LENGTH_LONG).show();
                 break;
 
             case R.id.menu_dowload:

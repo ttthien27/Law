@@ -16,13 +16,19 @@
         app:titleTextAppearance="@style/Toolbar.TitleText"
         android:theme="@style/ToolBarThemeTwo"></androidx.appcompat.widget.Toolbar>
 
-    <com.github.barteksc.pdfviewer.PDFView
+    <!--com.github.barteksc.pdfviewer.PDFView
         android:id="@+id/pdfvewer"
         android:layout_below="@+id/toolbar_DocumentView"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    </com.github.barteksc.pdfviewer.PDFView>
+    </com.github.barteksc.pdfviewer.PDFView-->
+
+    <WebView
+        android:id="@+id/webviewer"
+        android:layout_below="@+id/toolbar_DocumentView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
     <ProgressBar
         android:id="@+id/progressbar"

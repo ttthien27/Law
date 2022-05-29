@@ -1,8 +1,11 @@
 package com.android.Law.models;
 
-public class Document {
+import java.io.Serializable;
+
+public class Document implements Serializable {
 
     private String docId;
+    private String docUrl;
     private String docTitle;
     private String docDescription;
     private String docParagraphShort;
@@ -40,14 +43,31 @@ public class Document {
         return docTitle;
     }
 
-    public Document(String docId, String docTitle, String docDescription) {
+    public String getDocUrl() {return docUrl; }
+
+    public void setDocUrl(String docUrl) {this.docUrl = docUrl; }
+
+    public Document() {
+
+    }
+
+    public Document(String docId, String docUrl, String docTitle, String docDescription) {
         this.docId = docId;
+        this.docUrl =docUrl;
         this.docTitle = docTitle;
         this.docDescription = docDescription;
     }
 
-    public Document(String docId, String docTitle, String docDescription, String docParagraphShort, String docTermQuery) {
+    public Document(String docId, String docTitle, String docDescription) {
         this.docId = docId;
+        this.docUrl =docUrl;
+        this.docTitle = docTitle;
+        this.docDescription = docDescription;
+    }
+
+    public Document(String docId, String docUrl, String docTitle, String docDescription, String docParagraphShort, String docTermQuery) {
+        this.docId = docId;
+        this.docUrl = docUrl;
         this.docTitle = docTitle;
         this.docDescription = docDescription;
         this.docParagraphShort = docParagraphShort;

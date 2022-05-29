@@ -3,16 +3,103 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.CategoryFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragment.CategoryFragment"
+    android:background="@drawable/back_bg">
 
     <!-- TODO: Update blank fragment layout -->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/transparentColor">
+
+            <LinearLayout
+                android:layout_marginTop="5dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <com.google.android.material.chip.Chip
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:id="@+id/chip1"
+                        android:checkable="true"
+                        app:checkedIcon="@drawable/ic_baseline_check_24"
+                        android:text="Name1">
+                    </com.google.android.material.chip.Chip>
+
+                    <com.google.android.material.chip.Chip
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="5dp"
+                        android:id="@+id/chip2"
+                        android:checkable="true"
+                        app:checkedIcon="@drawable/ic_baseline_check_24"
+                        android:text="Name1">
+                    </com.google.android.material.chip.Chip>
+
+                    <com.google.android.material.chip.Chip
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="5dp"
+                        android:id="@+id/chip3"
+                        android:checkable="true"
+                        app:checkedIcon="@drawable/ic_baseline_check_24"
+                        android:text="Name1">
+                    </com.google.android.material.chip.Chip>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <com.google.android.material.chip.Chip
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:id="@+id/chip4"
+                        android:checkable="true"
+                        app:checkedIcon="@drawable/ic_baseline_check_24"
+                        android:text="Name1">
+                    </com.google.android.material.chip.Chip>
+
+                    <com.google.android.material.chip.Chip
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="5dp"
+                        android:id="@+id/chip5"
+                        android:checkable="true"
+                        app:checkedIcon="@drawable/ic_baseline_check_24"
+                        android:text="Name1">
+                    </com.google.android.material.chip.Chip>
+
+                    <com.google.android.material.chip.Chip
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="5dp"
+                        android:id="@+id/chip6"
+                        android:checkable="true"
+                        app:checkedIcon="@drawable/ic_baseline_check_24"
+                        android:text="Name1">
+                    </com.google.android.material.chip.Chip>
+                </LinearLayout>
+            </LinearLayout>
+
+
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_marginTop="5dp"
                 android:id="@+id/rv_category"

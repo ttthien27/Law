@@ -1,8 +1,10 @@
 package com.android.Law.fragment;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -18,12 +20,15 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.android.Law.R;
 import com.android.Law.activity.CategoryActivity;
 import com.android.Law.activity.DocumentViewActivity;
+import com.android.Law.activity.LawTitleActivity;
 import com.android.Law.activity.LoginActivity;
 import com.android.Law.activity.MainActivity;
 import com.android.Law.activity.SearchActivity;
@@ -45,11 +50,15 @@ public class HomeFragment extends Fragment {
     private Activity mActivity;
     private RecyclerView recyclerView;
     private DocumentAdapter documentAdapter;
+    private EditText edt_Search;
     private ImageButton btn_News;
     private ImageButton btn_Search;
     private ImageButton btn_More;
     private ImageButton btn_Support;
     private ImageButton btn_Category;
+    private ImageButton btn_LatestDoc;
+    private ImageButton btn_LawTitle;
+    private Dialog dialog;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -62,6 +71,12 @@ public class HomeFragment extends Fragment {
 
     public HomeFragment() {
         // Required empty public constructor
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        mContext=context;
     }
 
     /**
@@ -88,7 +103,7 @@ public class HomeFragment extends Fragment {
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
-            mContext = getContext();
+            //mContext = getContext();
             mActivity = getActivity();
 
         }
@@ -100,21 +115,32 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         //return inflater.inflate(R.layout.fragment_home, container, false);
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-        recyclerView = view.findViewById(R.id.rv_document);
-        btn_News = view.findViewById(R.id.btn_Latest_Doc);
-        btn_Search = view.findViewById(R.id.imgBtn_Home_search);
+        recyclerView = view.findViewById(R.id.rv_Home_Document);
+        btn_LatestDoc = view.findViewById(R.id.imgBtn_Home_LatestDoc);
+        btn_News = view.findViewById(R.id.imgBtn_Home_News);
         btn_More = view.findViewById(R.id.imgBtn_Home_More);
         btn_Support = view.findViewById(R.id.imgBtn_Home_Support);
-        btn_Category = view.findViewById(R.id.imgBtn_Home_category);
+        btn_Search = view.findViewById(R.id.imgBtn_Home_Search);
+        btn_Category = view.findViewById(R.id.imgBtn_Home_Category);
+        btn_LawTitle = view.findViewById(R.id.imgBtn_Home_LawTitle);
+        edt_Search = view.findViewById(R.id.edt_Home_Search);
+
 
         LinearLayoutManager linearLayoutManager=new LinearLayoutManager(mContext);
         recyclerView.setLayoutManager(linearLayoutManager);
-        documentAdapter =new DocumentAdapter(getListDocument());
+        documentAdapter =new DocumentAdapter(mContext,getListDocument());
         recyclerView.setAdapter(documentAdapter);
 
         Toolbar toolbar = view.findViewById(R.id.toolbar);
         ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
         setHasOptionsMenu(true);
+
+        btn_LatestDoc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                btnNews();
+            }
+        });
 
         btn_News.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -126,6 +152,7 @@ public class HomeFragment extends Fragment {
         btn_Search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(edt_Search.getText().toString().length()!=0)
                 btnSearch();
             }
         });
@@ -149,16 +176,46 @@ public class HomeFragment extends Fragment {
             public void onClick(View v) {btnCategory(); }
         });
 
+        btn_LawTitle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {btnLawTitle(); }
+        });
+
         return view;
     }
 
     private void btnNews(){
-        Intent intent = new Intent(getActivity(),LoginActivity.class);
-        startActivity(intent);
+        //Intent intent = new Intent(getActivity(),LoginActivity.class);
+        //startActivity(intent);
+        dialog = new Dialog(mContext);
+        dialog.setContentView(R.layout.custom_dialog_layout);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            dialog.getWindow().setBackgroundDrawable(getActivity().getDrawable(R.drawable.custom_dialog_background));
+        }
+        dialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        dialog.setCancelable(false); //Optional
+        dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation; //Setting the animations to dialog
+
+        Button Okay = dialog.findViewById(R.id.btn_Cancel_Dialog);
+
+
+        Okay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Toast.makeText(mContext, "Okay", Toast.LENGTH_SHORT).show();
+                dialog.dismiss();
+            }
+        });
+
+
+        dialog.show();
     }
 
     private void btnSearch(){
-        Intent intent = new Intent(getActivity(), SearchActivity.class);
+        Intent intent = new Intent(getActivity(), MainActivity.class);
+        intent.putExtra("index",2);
+        intent.putExtra("query",edt_Search.getText().toString());
         startActivity(intent);
     }
 
@@ -168,12 +225,18 @@ public class HomeFragment extends Fragment {
     }
 
     private void btnSupport(){
-        Intent intent = new Intent(getActivity(), TestWebServiceActivity.class);
+        Intent intent = new Intent(getActivity(), MainActivity.class);
+        intent.putExtra("index",1);
         startActivity(intent);
     }
 
     private void btnCategory(){
         Intent intent = new Intent(getActivity(), CategoryActivity.class);
+        startActivity(intent);
+    }
+
+    private void btnLawTitle(){
+        Intent intent = new Intent(getActivity(), LawTitleActivity.class);
         startActivity(intent);
     }
 

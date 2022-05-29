@@ -7,130 +7,136 @@
     android:background="@drawable/back_bg"
     tools:context=".fragment.AccountFragment">
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:gravity="center_horizontal"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
-        <LinearLayout
-            android:gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/imvCircular"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginBottom="8dp"
-                android:src="@drawable/action_hero"
-                app:shapeAppearanceOverlay="@style/Circular" />
-        </LinearLayout>
-
         <LinearLayout
             android:orientation="vertical"
-            android:gravity="center"
+            android:gravity="center_horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:drawablePadding="5dp"
-                android:text="Trương Triệu Thiên"
-                android:textColor="@color/black"
-                android:textSize="20dp" />
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/imvCircular"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:src="@drawable/bg_account_null"
+                    app:shapeAppearanceOverlay="@style/Circular" />
+            </LinearLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="5dp"
+                    android:text="Trương Triệu Thiên"
+                    android:textColor="@color/black"
+                    android:textSize="20dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="5dp"
+                    android:text="0866788634"
+                    android:textColor="@color/black"
+                    android:textSize="15dp" />
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="140dp"
                 android:layout_height="wrap_content"
-                android:drawablePadding="5dp"
-                android:text="0866788634"
-                android:textColor="@color/black"
-                android:textSize="15dp" />
+                android:layout_marginTop="15dp"
+                android:background="@drawable/btn_bg_account_two"
+                android:text="Cập nhật"/>
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/btn_bg_account_one"
+                android:drawableLeft="@drawable/outline_sync_lock_black_36"
+                android:drawableRight="@drawable/outline_chevron_right_black_36"
+                android:gravity="left|center_vertical"
+                android:drawablePadding="10dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="Đổi mật khẩu" />
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/btn_bg_account_one"
+                android:drawableLeft="@drawable/outline_policy_black_36"
+                android:drawableRight="@drawable/outline_chevron_right_black_36"
+                android:gravity="left|center_vertical"
+                android:drawablePadding="10dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="Liên hệ" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_Account_Evaluate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/btn_bg_account_one"
+                android:drawableLeft="@drawable/outline_star_black_36"
+                android:drawableRight="@drawable/outline_chevron_right_black_36"
+                android:gravity="left|center_vertical"
+                android:drawablePadding="10dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="Đánh giá" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/btn_bg_account_one"
+                android:drawableLeft="@drawable/outline_settings_black_36"
+                android:drawableRight="@drawable/outline_chevron_right_black_36"
+                android:gravity="left|center_vertical"
+                android:drawablePadding="10dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="Cài đặt" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/btn_bg_account_one"
+                android:gravity="left|center_vertical"
+                android:drawableLeft="@drawable/outline_logout_black_36"
+                android:drawablePadding="10dp"
+                android:paddingLeft="20dp"
+                android:text="Đăng xuất" />
         </LinearLayout>
+    </ScrollView>
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:layout_width="140dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:background="@drawable/btn_bg_account_two"
-            android:text="Cập nhật"/>
-
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:background="@drawable/btn_bg_account_one"
-            android:drawableLeft="@drawable/outline_sync_lock_black_36"
-            android:drawableRight="@drawable/outline_chevron_right_black_36"
-            android:gravity="left|center_vertical"
-            android:drawablePadding="10dp"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
-            android:text="Đổi mật khẩu" />
-
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:background="@drawable/btn_bg_account_one"
-            android:drawableLeft="@drawable/outline_policy_black_36"
-            android:drawableRight="@drawable/outline_chevron_right_black_36"
-            android:gravity="left|center_vertical"
-            android:drawablePadding="10dp"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
-            android:text="Liên hệ" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:background="@drawable/btn_bg_account_one"
-            android:drawableLeft="@drawable/outline_star_black_36"
-            android:drawableRight="@drawable/outline_chevron_right_black_36"
-            android:gravity="left|center_vertical"
-            android:drawablePadding="10dp"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
-            android:text="Đánh giá" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:background="@drawable/btn_bg_account_one"
-            android:drawableLeft="@drawable/outline_settings_black_36"
-            android:drawableRight="@drawable/outline_chevron_right_black_36"
-            android:gravity="left|center_vertical"
-            android:drawablePadding="10dp"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
-            android:text="Cài đặt" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:background="@drawable/btn_bg_account_one"
-            android:gravity="left|center_vertical"
-            android:drawableLeft="@drawable/outline_logout_black_36"
-            android:drawablePadding="10dp"
-            android:paddingLeft="20dp"
-            android:text="Đăng xuất" />
-    </LinearLayout>
 </FrameLayout>

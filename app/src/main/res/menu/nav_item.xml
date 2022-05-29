@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/item_Library"
+        android:icon="@drawable/ic_baseline_bookmarks_24"
+        android:title="Thư viện"
+        app:cnb_backgroundColor="#ffcd66"
+        app:cnb_iconColor="#354855"
+        app:cnb_textColor="#354855" />
+
+    <item
+        android:id="@+id/item_News"
+        android:icon="@drawable/ic_baseline_search_24"
+        android:title="Tìm kiếm"
+        app:cnb_backgroundColor="#ffcd66"
+        app:cnb_iconColor="#354855"
+        app:cnb_textColor="#354855" />
+
+    <item
+        android:id="@+id/item_Home"
+        android:icon="@drawable/ic_baseline_home_24"
+        android:title="Trang chủ"
+        app:cnb_backgroundColor="#ffcd66"
+        app:cnb_iconColor="#354855"
+        app:cnb_textColor="#354855" />
+
+    <item
+        android:id="@+id/item_Support"
+        android:icon="@drawable/ic_baseline_support_agent_24"
+        android:title="Tư vấn"
+        app:cnb_backgroundColor="#ffcd66"
+        app:cnb_iconColor="#354855"
+        app:cnb_textColor="#354855" />
+
+    <item
+        android:id="@+id/item_Account"
+        android:icon="@drawable/ic_baseline_account_circle_24"
+        android:title="Tài khoản"
+        app:cnb_backgroundColor="#ffcd66"
+        app:cnb_iconColor="#354855"
+        app:cnb_textColor="#354855" />
+</menu>

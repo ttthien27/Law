@@ -1,35 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layout_ItemDocment">
+
     <androidx.cardview.widget.CardView
-        android:id="@+id/cv_item"
-        app:cardBackgroundColor="#9bdceb"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:elevation="5dp"
-        android:layout_margin="5dp"
-        app:cardCornerRadius="5dp">
+        android:layout_marginBottom="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
         <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="wrap_content"
+            android:layout_margin="5dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <LinearLayout
-                android:padding="5dp"
-                android:layout_gravity="center_vertical"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-                <ImageView
-                    android:id="@+id/imgView_item"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:src="@drawable/c1">
-                </ImageView>
-            </LinearLayout>
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="310dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <LinearLayout
                     android:layout_marginLeft="10dp"
@@ -38,31 +25,48 @@
                     android:layout_height="30dp"
                     android:layout_marginRight="10dp"
                     android:layout_marginTop="5dp">
-                    <TextView
-                        android:layout_marginLeft="5dp"
-                        android:layout_gravity="center_vertical"
-                        android:id="@+id/tv_title"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/black"
-                        android:textSize="18dp"
-                        android:gravity="center_vertical"
-                        android:text="NGHỊ ĐỊNH"/>
+                    <LinearLayout
+                        android:background="@drawable/bg_shape_item_three"
+                        app:cardCornerRadius="5dp"
+                        android:layout_width="120dp"
+                        android:layout_gravity="center|center_horizontal"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginRight="8dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_gravity="center_vertical"
+                            android:id="@+id/tv_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="50dp"
+                            android:textColor="@color/black"
+                            android:textSize="18dp"
+                            android:gravity="center_vertical"
+                            android:text="NGHỊ ĐỊNH"/>
+                    </LinearLayout>
+
                 </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:layout_marginBottom="10dp">
-                    <TextView
+                    <com.codesgood.views.JustifiedTextView
                         android:id="@+id/tv_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textColor="#6003082b"
                         android:textSize="18dp"
                         android:gravity="center_vertical"
-                        android:text="Quyết định 24/QĐ-UBQGCĐS năm 2022 Quy chế hoạt động của Ủy ban Quốc gia về chuyển đổi số"/>
+                        android:text="Quyết định 24/QĐ-UBQGCĐS năm 2022 Quy chế hoạt động của Ủy ban Quốc gia về chuyển đổi số.................................................."/>
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>

@@ -86,7 +86,7 @@ public class TestWebServiceActivity extends AppCompatActivity {
 
     private void clickCallApishowDocument(){
         Query query = new Query("Thiên tai Việt Nam");
-        ApiService.apiService.showDocument(query).enqueue(new Callback<List<Document>>() {
+        ApiService.apiService.searchDocument(query).enqueue(new Callback<List<Document>>() {
             @Override
             public void onResponse(Call<List<Document>> call, Response<List<Document>> response) {
                 List<Document> listdocument = (List<Document>) response.body();

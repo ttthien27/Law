@@ -39,16 +39,18 @@ public class CategoryActivity extends AppCompatActivity {
 
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        Query query1 = new Query("Giao Thông");
-        adapter.addFrag(new CategoryFragment(query1), "Giao Thông");
-        Query query2 = new Query("Giáo dục");
-        adapter.addFrag(new CategoryFragment(query2), "Giáo dục");
-        Query query3 = new Query("Thuế");
-        adapter.addFrag(new CategoryFragment(query3), "Thuế");
-        Query query4 = new Query("Bảo hiểm");
-        adapter.addFrag(new CategoryFragment(query4), "Bảo hiểm");
-        Query query5 = new Query("Dân sự");
-        adapter.addFrag(new CategoryFragment(query4), "Dân sự");
+        Query query1 = new Query("Giao Thông vận tải");String str1 = "Xử phạt@An toàn giao thông@Tai nạn@Vi phạm@Xe ưu tiên@Giấy phép lái xe";
+        adapter.addFrag(new CategoryFragment(query1,str1), "Giao Thông - Vận tải");
+        Query query2 = new Query("Giáo dục");String str2 = "Phổ thông@Dạy nghề@Giáo dục thường xuyên@Mầm non@Tuyển sinh@Đào tạo";
+        adapter.addFrag(new CategoryFragment(query2,str2), "Giáo dục");
+        Query query3 = new Query("Đầu tư");String str3 = "Nước ngoài@Doanh nghiệp@Quỹ đầu tư@Thủ tục@Hỗ trợ vốn@Đầu tư phát triển";
+        adapter.addFrag(new CategoryFragment(query3,str3), "Đầu tư");
+        Query query4 = new Query("Bảo hiểm");String str4 = "Y tế@Thất nghiệp@Tai nạn lao động@Xã hội@Bảo hiểm xe@Lương hưu";
+        adapter.addFrag(new CategoryFragment(query4,str4), "Bảo hiểm");
+        Query query5 = new Query("Tài nguyên môi trường");String str5 = "Biển và hải đảo@Khai thác@Khoáng sản@Tài nguyên nước@Bảo vệ@Quản lý";
+        adapter.addFrag(new CategoryFragment(query5,str5), "Tài nguyên - Môi trường");
+        Query query6 = new Query("Lao động tiền lương");String str6 = "Lương hưu@Mức lương@Tai nạn lao động@Thương binh@Việc làm@Phụ cấp";
+        adapter.addFrag(new CategoryFragment(query6,str6), "Lao động - Tiền lương");
         viewPager.setAdapter(adapter);
     }
 

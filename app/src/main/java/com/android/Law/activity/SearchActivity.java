@@ -38,18 +38,13 @@ public class SearchActivity extends AppCompatActivity {
 
     private RecyclerView recyclerSearch;
     private ProgressBar progressBar;
-    ImageButton btnSearch;
-    DocumentSearchAdapter documentAdapter_search;
-    EditText editText;
-
-    LinearLayoutManager linearLayoutManager = new LinearLayoutManager(SearchActivity.this);
-    List<Document> list = new ArrayList<Document>();
-    Query query;
-    String messenge = "";
-    String mess_receive = "";
-    ArrayList<String> arrayList;
-    private static String ip = "192.168.1.112";
-    private static Socket s;
+    private ImageButton btnSearch;
+    private DocumentSearchAdapter documentAdapter_search;
+    private EditText editText;
+    private LinearLayoutManager linearLayoutManager = new LinearLayoutManager(SearchActivity.this);
+    private List<Document> list = new ArrayList<Document>();
+    private Query query;
+    private String mess_receive = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,7 +90,7 @@ public class SearchActivity extends AppCompatActivity {
         progressBar.setVisibility(View.VISIBLE);
         query = new Query(editText.getText().toString());
         Log.d("Activity", "--------------: 3");
-        ApiService.apiService.showDocument(query).enqueue(new Callback<List<Document>>() {
+        ApiService.apiService.searchDocument(query).enqueue(new Callback<List<Document>>() {
             @Override
             public void onResponse(Call<List<Document>> call, Response<List<Document>> response) {
                 Log.d("Activity", "--------------: 4");
@@ -118,6 +113,7 @@ public class SearchActivity extends AppCompatActivity {
             public void onFailure(Call<List<Document>> call, Throwable t) {
                 progressBar.setVisibility(View.VISIBLE);
                 Log.d("----TestService_showDocument----", "onFailure: Fail" + t.toString());
+                clickCallAPIShowDocument();
             }
 
         });
@@ -138,7 +134,7 @@ public class SearchActivity extends AppCompatActivity {
     public void send_text(View view) {
         myAsyncTask_Send mt = new myAsyncTask_Send();
         mt.execute();
-        Toast.makeText(getApplicationContext(), "Data send", Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(), "databases send", Toast.LENGTH_LONG).show();
         Log.d("Activity", "--------------: 1");
     }
 
@@ -148,7 +144,7 @@ public class SearchActivity extends AppCompatActivity {
         @Override
         protected Void doInBackground(Void... voids) {
             Log.d("Activity", "--------------: 3");
-            ApiService.apiService.showDocument(query).enqueue(new Callback<List<Document>>() {
+            ApiService.apiService.searchDocument(query).enqueue(new Callback<List<Document>>() {
                 @Override
                 public void onResponse(Call<List<Document>> call, Response<List<Document>> response) {
                     list = (List<Document>) response.body();

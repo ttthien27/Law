@@ -43,6 +43,11 @@ public class FollowFragment extends Fragment {
         // Required empty public constructor
     }
 
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        mContext=context;
+    }
     /**
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
@@ -67,7 +72,7 @@ public class FollowFragment extends Fragment {
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
-            mContext = getContext();
+            //mContext = getActivity().getApplicationContext();
             mActivity = getActivity();
         }
     }
@@ -81,7 +86,7 @@ public class FollowFragment extends Fragment {
         recyclerView_follow = view.findViewById(R.id.rv_document_follow);
         LinearLayoutManager linearLayoutManager=new LinearLayoutManager(mContext);
         recyclerView_follow.setLayoutManager(linearLayoutManager);
-        documentAdapter_follow =new DocumentAdapter(getListDocument());
+        documentAdapter_follow =new DocumentAdapter(mContext,getListDocument());
         recyclerView_follow.setAdapter(documentAdapter_follow);
 
         return view;

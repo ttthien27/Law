@@ -43,6 +43,12 @@ public class SeenFragment extends Fragment {
         // Required empty public constructor
     }
 
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        mContext=context;
+    }
+
     /**
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
@@ -67,7 +73,7 @@ public class SeenFragment extends Fragment {
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
-            mContext = getContext();
+            //mContext = getContext();
             mActivity = getActivity();
         }
     }
@@ -82,7 +88,7 @@ public class SeenFragment extends Fragment {
         recyclerView_seen = view.findViewById(R.id.rv_document_seen);
         LinearLayoutManager linearLayoutManager=new LinearLayoutManager(mContext);
         recyclerView_seen.setLayoutManager(linearLayoutManager);
-        documentAdapter_seen =new DocumentAdapter(getListDocument());
+        documentAdapter_seen =new DocumentAdapter(mContext,getListDocument());
         recyclerView_seen.setAdapter(documentAdapter_seen);
 
         return view;

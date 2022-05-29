@@ -27,6 +27,12 @@ public interface ApiService {
     @GET("search")
     Call<List<Document>> search(@Query("query") String query);
 
-    @POST("showDocument")
-    Call<List<Document>> showDocument(@Body com.android.Law.models.Query query);
+    @POST("searchDocument")
+    Call<List<Document>> searchDocument(@Body com.android.Law.models.Query query);
+
+    @POST("searchDocumentCategory")
+    Call<List<Document>> searchDocumentCategory(@Body com.android.Law.models.Query query);
+
+    @POST("searchDocumentTitle")
+    Call<List<Document>> searchDocumentTitle(@Body com.android.Law.models.Query query);
 }

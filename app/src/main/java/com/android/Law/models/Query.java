@@ -17,4 +17,7 @@ public class Query {
     public Query(String query) {
         this.query = query;
     }
+    public Query() {
+
+    }
 }
