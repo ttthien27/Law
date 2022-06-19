@@ -29,7 +29,7 @@
                     <com.codesgood.views.JustifiedTextView
                         android:layout_gravity="center_vertical"
                         android:id="@+id/tv_des"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textColor="@color/black"
                         android:textSize="15dp"

@@ -12,11 +12,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.android.Law.Data.LawSQLiteDao;
 import com.android.Law.R;
 import com.android.Law.adapter.DocumentAdapter;
 import com.android.Law.models.Document;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -30,6 +32,8 @@ public class SeenFragment extends Fragment {
     private Activity mActivity;
     private RecyclerView recyclerView_seen;
     private DocumentAdapter documentAdapter_seen;
+    private LawSQLiteDao sqliteDAO;
+    private List<Document> listDocumentSeen;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -86,9 +90,14 @@ public class SeenFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_seen, container, false);
         recyclerView_seen = view.findViewById(R.id.rv_document_seen);
+
+        sqliteDAO = new LawSQLiteDao(mContext, false);
         LinearLayoutManager linearLayoutManager=new LinearLayoutManager(mContext);
         recyclerView_seen.setLayoutManager(linearLayoutManager);
-        documentAdapter_seen =new DocumentAdapter(mContext,getListDocument());
+        //listDocumentSeen = new ArrayList<Document>();
+        //listDocumentSeen = sqliteDAO.getListDocumentSeen(mContext);
+        //Collections.reverse(listDocumentSeen);
+        documentAdapter_seen =new DocumentAdapter(mContext,sqliteDAO.getListDocumentSeen(mContext));
         recyclerView_seen.setAdapter(documentAdapter_seen);
 
         return view;
@@ -98,9 +107,9 @@ public class SeenFragment extends Fragment {
 
         List<Document> list = new ArrayList<>();
         list.add(new Document("1","NGHỊ ĐỊNH","Quyết định 24/QĐ-UBQGCĐS năm 2022 Quy chế hoạt động của Ủy ban Quốc gia về chuyển đổi số"));
-        list.add(new Document("2","NGHỊ ĐỊNH","Quyết định 24/QĐ-UBQGCĐS năm 2022 Quy chế hoạt động của Ủy ban Quốc gia về chuyển đổi số"));
-        list.add(new Document("3","NGHỊ ĐỊNH","Quyết định 24/QĐ-UBQGCĐS năm 2022 Quy chế hoạt động của Ủy ban Quốc gia về chuyển đổi số"));
-        list.add(new Document("4","NGHỊ ĐỊNH","Quyết định 24/QĐ-UBQGCĐS năm 2022 Quy chế hoạt động của Ủy ban Quốc gia về chuyển đổi số"));
+        list.add(new Document("2","QUYẾT ĐỊNH","VỀ CHẾ ĐỘ PHỤ CẤP ĐỐI VỚI CÁN BỘ, CÔNG CHỨC ĐỘI Y TẾ DỰ PHÒNG TUYẾN QUẬN – HUYỆN VÀ TRẠM Y TẾ PHƯỜNG – XÃ, THỊ TRẤN"));
+        list.add(new Document("3","QUYẾT ĐỊNH","VỀ ĐIỀU CHỈNH BỔ SUNG QUYẾT ĐỊNH SỐ 05/2005/QĐ-UB NGÀY 17 THÁNG 01 NĂM 2005 CỦA ỦY BAN NHÂN DÂN THÀNH PHỐ BAN HÀNH ĐỊNH MỨC, ĐƠN GIÁ CHI PHÍ VẬN CHUYỂN KHÁCH CÔNG CỘNG BẰNG XE BUÝT VÀ XE ĐƯA RƯỚC HỌC SINH-SINH VIÊN VÀ CÔNG NHÂN TRÊN ĐỊA BÀN THÀNH PHỐ HỒ CHÍ MINH"));
+        list.add(new Document("4","QUYẾT ĐỊNH","VỀ BỔ SUNG DỰ TOÁN KINH PHÍ NĂM 2005 CHO 14 SỞ – NGÀNH THỰC HIỆN KHOÁN CHI"));
         list.add(new Document("5","NGHỊ ĐỊNH","Quyết định 24/QĐ-UBQGCĐS năm 2022 Quy chế hoạt động của Ủy ban Quốc gia về chuyển đổi số"));
         list.add(new Document("6","NGHỊ ĐỊNH","Quyết định 24/QĐ-UBQGCĐS năm 2022 Quy chế hoạt động của Ủy ban Quốc gia về chuyển đổi số"));
         list.add(new Document("7","NGHỊ ĐỊNH","Quyết định 24/QĐ-UBQGCĐS năm 2022 Quy chế hoạt động của Ủy ban Quốc gia về chuyển đổi số"));

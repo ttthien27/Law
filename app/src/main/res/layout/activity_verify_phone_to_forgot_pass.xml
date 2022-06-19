@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/back_bg"
+    android:orientation="vertical"
+    tools:context=".activity.VerifyPhoneToForgotPassActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="150dp"
+        android:fontFamily="@font/nunito_bold"
+        android:text="XÁC THỰC SỐ ĐIỆN THOẠI"
+        android:textSize="25dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center">
+
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="62dp"
+            android:layout_marginRight="62dp"
+            android:background="@drawable/blue_border_rounded_cornwe">
+
+
+            <EditText
+                android:id="@+id/edt_Forgot_Phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/username_icon"
+                android:background="@android:color/transparent"
+                android:hint="Số điện thoại"
+                android:inputType="textPhonetic"
+                android:maxLines="1"
+                android:paddingLeft="17dp"
+                android:paddingTop="15dp"
+                android:paddingRight="17dp"
+                android:paddingBottom="15dp"
+                android:textCursorDrawable="@drawable/cursor_color"
+                android:textSize="12sp" />
+
+            <ImageView
+                android:id="@+id/username_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="17dp"
+                android:src="@drawable/ic_baseline_phone_24" />
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center">
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/edtNum1_forgotPass"
+            android:layout_width="40dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="4dp"
+            android:gravity="center"
+            android:imeOptions="actionNext"
+            android:importantForAutofill="no"
+            android:inputType="number"
+            android:maxLength="1"
+            android:textColor="#000000"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            tools:ignore="LabelFor" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/edtNum2_forgotPass"
+            android:layout_width="40dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="4dp"
+            android:gravity="center"
+            android:imeOptions="actionNext"
+            android:importantForAutofill="no"
+            android:inputType="number"
+            android:maxLength="1"
+            android:textColor="#000000"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            tools:ignore="LabelFor" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/edtNum3_forgotPass"
+            android:layout_width="40dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="4dp"
+            android:gravity="center"
+            android:imeOptions="actionNext"
+            android:importantForAutofill="no"
+            android:inputType="number"
+            android:maxLength="1"
+            android:textColor="#000000"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            tools:ignore="LabelFor" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/edtNum4_forgotPass"
+            android:layout_width="40dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="4dp"
+            android:gravity="center"
+            android:imeOptions="actionNext"
+            android:importantForAutofill="no"
+            android:inputType="number"
+            android:maxLength="1"
+            android:textColor="#000000"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            tools:ignore="LabelFor" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/edtNum5_forgotPass"
+            android:layout_width="40dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="4dp"
+            android:gravity="center"
+            android:imeOptions="actionNext"
+            android:importantForAutofill="no"
+            android:inputType="number"
+            android:maxLength="1"
+            android:textColor="#000000"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            tools:ignore="LabelFor" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/edtNum6_forgotPass"
+            android:layout_width="40dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="4dp"
+            android:gravity="center"
+            android:imeOptions="actionNext"
+            android:importantForAutofill="no"
+            android:inputType="number"
+            android:maxLength="1"
+            android:textColor="#000000"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            tools:ignore="LabelFor" />
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnSendOTP_forgotPass"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/blue_fill__rounded_color"
+        android:text="Nhận mã OTP" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnVerify_forgotPass"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/blue_fill__rounded_color"
+        android:text="Xác thực" />
+
+</LinearLayout>

@@ -23,6 +23,8 @@ import com.krishna.fileloader.FileLoader;
 
 public class DocumentViewActivity extends AppCompatActivity {
 
+    private Document documentInView;
+    private LawSQLiteDao sqliteDAO;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -111,7 +113,35 @@ public class DocumentViewActivity extends AppCompatActivity {
             return;
         }
 
-        Document document = (Document) bundle.get("document");
+        documentInView = (Document) bundle.get("document");
+        sqliteDAO = new LawSQLiteDao(DocumentViewActivity.this, false);
+
+        if(!LawSQLiteDao.checkExistDocumentSeen(DocumentViewActivity.this,documentInView.getDocId())){
+            boolean result = LawSQLiteDao.addDocumentSeen(DocumentViewActivity.this,documentInView);
+            if (result){
+                //Toast.makeText(DocumentViewActivity.this,"Đã thêm theo dõi",Toast.LENGTH_LONG).show();
+                Log.d("DocumentViewActivity", "onOptionsItemSelected: Them Seen: "+ result);
+            }else{
+                Log.d("DocumentViewActivity", "onOptionsItemSelected: Them Seen: "+ result);
+                Toast.makeText(DocumentViewActivity.this,"Lỗi khi thêm danh sách đã xem",Toast.LENGTH_LONG).show();
+            }
+        }else{
+            boolean check = sqliteDAO.deleteDocumentSeen(DocumentViewActivity.this,documentInView.getDocId());
+            if(check){
+                boolean result = LawSQLiteDao.addDocumentSeen(DocumentViewActivity.this,documentInView);
+                if (result){
+                    //Toast.makeText(DocumentViewActivity.this,"Đã thêm theo dõi",Toast.LENGTH_LONG).show();
+                    Log.d("DocumentViewActivity", "onOptionsItemSelected: Them Seen: "+ result);
+                }else{
+                    Log.d("DocumentViewActivity", "onOptionsItemSelected: Them Seen: "+ result);
+                    Toast.makeText(DocumentViewActivity.this,"Lỗi khi thêm danh sách đã xem",Toast.LENGTH_LONG).show();
+                }
+            }else{
+                Toast.makeText(DocumentViewActivity.this,"Lỗi khi thêm danh sách đã xem",Toast.LENGTH_LONG).show();
+            }
+        }
+
+
 
         ProgressBar progressBar = findViewById(R.id.progressbar);
         progressBar.setVisibility(View.VISIBLE);
@@ -121,7 +151,7 @@ public class DocumentViewActivity extends AppCompatActivity {
         webView.setWebViewClient(new WebViewClient());
         webView.getSettings().setSupportZoom(true);
         webView.getSettings().setJavaScriptEnabled(true);
-        webView.loadUrl(document.getDocUrl());
+        webView.loadUrl(documentInView.getDocUrl());
         //webView.loadUrl("https://drive.google.com/file/d/1m4qWzuiLnbkTJTAO12_j5YQSCuqM4cXp/view?usp=viewer");
         progressBar.setVisibility(View.GONE);
 
@@ -139,19 +169,20 @@ public class DocumentViewActivity extends AppCompatActivity {
         int id = item.getItemId();
         switch (id){
             case R.id.menu_follow:
-
-                Document document = new Document("2122","https://thuvienphapluat.vn/van-ban/Lao-dong-Tien-luong/Quyet-dinh-81-2005-QD-UB-che-do-phu-cap-can-bo-cong-chuc-doi-y-te-du-phong-tuyen-quan-huyen-tram-y-te-phuong-xa-thi-tran-2143.aspx","QUYẾT ĐỊNH",
-                        "VỀ CHẾ ĐỘ PHỤ CẤP ĐỐI VỚI CÁN BỘ, CÔNG CHỨC ĐỘI Y TẾ DỰ PHÒNG TUYẾN QUẬN – HUYỆN VÀ TRẠM Y TẾ PHƯỜNG – XÃ, THỊ TRẤN");
-                boolean result = LawSQLiteDao.addDocumentFollow(DocumentViewActivity.this,document);
-                if (result){
-                    Toast.makeText(DocumentViewActivity.this,"Đã thêm theo dõi",Toast.LENGTH_LONG).show();
-                }else
-                //Log.d("DocumentViewActivity", "onOptionsItemSelected: Them Follow: "+ result);
-                Toast.makeText(DocumentViewActivity.this,"Chưa thêm theo dõi",Toast.LENGTH_LONG).show();
+                if(!LawSQLiteDao.checkExistDocumentFollow(DocumentViewActivity.this,documentInView.getDocId())){
+                    boolean result = LawSQLiteDao.addDocumentFollow(DocumentViewActivity.this,documentInView);
+                    if (result){
+                        Toast.makeText(DocumentViewActivity.this,"Đã thêm theo dõi",Toast.LENGTH_LONG).show();
+                    }else
+                        //Log.d("DocumentViewActivity", "onOptionsItemSelected: Them Follow: "+ result);
+                        Toast.makeText(DocumentViewActivity.this,"Chưa thêm theo dõi",Toast.LENGTH_LONG).show();
+                }else{
+                    Toast.makeText(DocumentViewActivity.this,"Văn bản đã được theo dõi",Toast.LENGTH_LONG).show();
+                }
                 break;
 
             case R.id.menu_dowload:
-                Toast.makeText(DocumentViewActivity.this,"Tải về",Toast.LENGTH_LONG).show();
+                //Toast.makeText(DocumentViewActivity.this,"Tải về",Toast.LENGTH_LONG).show();
                 break;
 
             default:

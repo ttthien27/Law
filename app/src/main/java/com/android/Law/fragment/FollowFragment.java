@@ -12,8 +12,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.android.Law.Data.LawSQLiteDao;
 import com.android.Law.R;
 import com.android.Law.adapter.DocumentAdapter;
+import com.android.Law.adapter.DocumentFollowAdapter;
 import com.android.Law.models.Document;
 
 import java.util.ArrayList;
@@ -29,7 +31,8 @@ public class FollowFragment extends Fragment {
     private Context mContext;
     private Activity mActivity;
     private RecyclerView recyclerView_follow;
-    private DocumentAdapter documentAdapter_follow;
+    private DocumentFollowAdapter documentAdapter_follow;
+    private LawSQLiteDao sqliteDAO;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -84,9 +87,12 @@ public class FollowFragment extends Fragment {
         //return inflater.inflate(R.layout.fragment_follow, container, false);
         View view = inflater.inflate(R.layout.fragment_follow, container, false);
         recyclerView_follow = view.findViewById(R.id.rv_document_follow);
+
+        sqliteDAO = new LawSQLiteDao(mContext, false);
+
         LinearLayoutManager linearLayoutManager=new LinearLayoutManager(mContext);
         recyclerView_follow.setLayoutManager(linearLayoutManager);
-        documentAdapter_follow =new DocumentAdapter(mContext,getListDocument());
+        documentAdapter_follow =new DocumentFollowAdapter(mContext,sqliteDAO.getListDocumentFollow(mContext));
         recyclerView_follow.setAdapter(documentAdapter_follow);
 
         return view;
@@ -96,9 +102,9 @@ public class FollowFragment extends Fragment {
 
         List<Document> list = new ArrayList<>();
         list.add(new Document("1","NGHỊ ĐỊNH","Quyết định 24/QĐ-UBQGCĐS năm 2022 Quy chế hoạt động của Ủy ban Quốc gia về chuyển đổi số"));
-        list.add(new Document("2","NGHỊ ĐỊNH","Quyết định 24/QĐ-UBQGCĐS năm 2022 Quy chế hoạt động của Ủy ban Quốc gia về chuyển đổi số"));
-        list.add(new Document("3","NGHỊ ĐỊNH","Quyết định 24/QĐ-UBQGCĐS năm 2022 Quy chế hoạt động của Ủy ban Quốc gia về chuyển đổi số"));
-        list.add(new Document("4","NGHỊ ĐỊNH","Quyết định 24/QĐ-UBQGCĐS năm 2022 Quy chế hoạt động của Ủy ban Quốc gia về chuyển đổi số"));
+        list.add(new Document("2","QUYẾT ĐỊNH","VỀ CHẾ ĐỘ PHỤ CẤP ĐỐI VỚI CÁN BỘ, CÔNG CHỨC ĐỘI Y TẾ DỰ PHÒNG TUYẾN QUẬN – HUYỆN VÀ TRẠM Y TẾ PHƯỜNG – XÃ, THỊ TRẤN"));
+        list.add(new Document("3","QUYẾT ĐỊNH","VỀ ĐIỀU CHỈNH BỔ SUNG QUYẾT ĐỊNH SỐ 05/2005/QĐ-UB NGÀY 17 THÁNG 01 NĂM 2005 CỦA ỦY BAN NHÂN DÂN THÀNH PHỐ BAN HÀNH ĐỊNH MỨC, ĐƠN GIÁ CHI PHÍ VẬN CHUYỂN KHÁCH CÔNG CỘNG BẰNG XE BUÝT VÀ XE ĐƯA RƯỚC HỌC SINH-SINH VIÊN VÀ CÔNG NHÂN TRÊN ĐỊA BÀN THÀNH PHỐ HỒ CHÍ MINH"));
+        list.add(new Document("4","QUYẾT ĐỊNH","VỀ BỔ SUNG DỰ TOÁN KINH PHÍ NĂM 2005 CHO 14 SỞ – NGÀNH THỰC HIỆN KHOÁN CHI"));
         return list;
     }
 }

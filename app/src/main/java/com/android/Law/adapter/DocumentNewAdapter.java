@@ -19,32 +19,31 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.android.Law.R;
 import com.android.Law.activity.DocumentViewActivity;
 import com.android.Law.models.Document;
+import com.android.Law.models.DocumentMostView;
+import com.android.Law.models.DocumentNew;
 
 import java.util.List;
 import java.util.Locale;
 
-
-public class DocumentAdapter extends  RecyclerView.Adapter<DocumentAdapter.DocumentViewHolder>{
-
+public class DocumentNewAdapter extends  RecyclerView.Adapter<DocumentNewAdapter.DocumentNew_ViewHolder>{
     private Context mContext;
-    private List<Document> documentList;
+    private List<DocumentNew> documentList;
 
-
-    public DocumentAdapter(Context context,List<Document> documentList) {
+    public DocumentNewAdapter(Context context,List<DocumentNew> documentList) {
         this.mContext = context;
         this.documentList = documentList;
     }
 
     @NonNull
     @Override
-    public DocumentViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_document,parent,false);
-        return new DocumentViewHolder(view);
+    public DocumentNew_ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_document_new,parent,false);
+        return new DocumentNewAdapter.DocumentNew_ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull DocumentViewHolder holder, int position) {
-        Document document = documentList.get(position);
+    public void onBindViewHolder(@NonNull DocumentNew_ViewHolder holder, int position) {
+        DocumentNew document = documentList.get(position);
         if(document==null)
             return;
         //holder.BindColor();
@@ -62,13 +61,13 @@ public class DocumentAdapter extends  RecyclerView.Adapter<DocumentAdapter.Docum
         holder.tv_Name.setText(desChange);
         if(title.equals("THÔNG TƯ LIÊN TỊCH")){title="THÔNG TƯ";}
         holder.tv_Title.setText(title);
+        holder.tv_Date.setText("Ngày ban hành: "+document.getDate());
         holder.linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onClickGoToDetail(document);
             }
         });
-
     }
 
     private void onClickGoToDetail(Document document){
@@ -87,39 +86,23 @@ public class DocumentAdapter extends  RecyclerView.Adapter<DocumentAdapter.Docum
         return 0;
     }
 
-    /*@Override
-    public void onClick(View v) {
-
-    }
-
-    @Override
-    public boolean onLongClick(View v) {
-        return false;
-    }*/
-
-    public class DocumentViewHolder extends RecyclerView.ViewHolder{
+    public class DocumentNew_ViewHolder extends RecyclerView.ViewHolder{
 
         private TextView tv_Name;
         private TextView tv_Title;
+        private TextView tv_Date;
         private CardView cardView;
         private LinearLayout linearLayout;
         private ImageView imageView;
-        public DocumentViewHolder(@NonNull View itemView) {
+        public DocumentNew_ViewHolder(@NonNull View itemView) {
             super(itemView);
-            tv_Name = itemView.findViewById(R.id.tv_name);
-            tv_Title = itemView.findViewById(R.id.tv_title);
-            cardView = itemView.findViewById(R.id.cv_item);
-            linearLayout = itemView.findViewById(R.id.layout_ItemDocment);
+            tv_Name = itemView.findViewById(R.id.tv_ItemDocNew_Des);
+            tv_Title = itemView.findViewById(R.id.tv_ItemDocNew_Title);
+            tv_Date = itemView.findViewById(R.id.tv_ItemDocNew_Date);
+            //cardView = itemView.findViewById(R.id.tv_ItemDocMostView_Des);
+            linearLayout = itemView.findViewById(R.id.layout_ItemDocmentNew);
             //imageView = itemView.findViewById(R.id.imgView_item);
         }
-        void BindColor(){
-            if(getAdapterPosition() % 2 == 0){
-                cardView.setCardBackgroundColor(Color.parseColor("#43c6ed"));
-                imageView.setImageResource(R.drawable.c1);
-            }else {
-                cardView.setCardBackgroundColor(Color.parseColor("#43ede1"));
-                imageView.setImageResource(R.drawable.c2);
-            }
-        }
+
     }
 }

@@ -225,6 +225,7 @@
                 android:maxLines="1"
                 android:paddingLeft="17dp"
                 android:paddingTop="15dp"
+                android:paddingRight="17dp"
                 android:paddingBottom="15dp"
                 android:textCursorDrawable="@drawable/cursor_color"
                 android:textSize="12sp" />
@@ -261,6 +262,7 @@
                 android:maxLines="1"
                 android:paddingLeft="17dp"
                 android:paddingTop="15dp"
+                android:paddingRight="17dp"
                 android:paddingBottom="15dp"
                 android:textCursorDrawable="@drawable/cursor_color"
                 android:textSize="12sp" />
@@ -277,6 +279,7 @@
         </RelativeLayout>
 
         <TextView
+            android:id="@+id/tv_Login_ForgetPass"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

@@ -1,5 +1,10 @@
 package com.android.Law.fragment;
 
+import android.app.Activity;
+import android.app.Dialog;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -13,9 +18,13 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.android.Law.R;
+import com.android.Law.SessionManager;
+import com.android.Law.activity.LoginActivity;
+import com.android.Law.activity.MainActivity;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -32,9 +41,18 @@ public class SuportFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private Context mContext;
+    private Activity mActivity;
+    private Dialog dialog;
+    private SessionManager sessionManager;
 
     public SuportFragment() {
         // Required empty public constructor
+    }
+
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        mContext=context;
     }
 
     /**
@@ -104,5 +122,53 @@ public class SuportFragment extends Fragment {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void showDialogCheckLogin(){
+        dialog = new Dialog(mContext);
+        dialog.setContentView(R.layout.custom_dialog_layout_checklogin);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            dialog.getWindow().setBackgroundDrawable(getActivity().getDrawable(R.drawable.custom_dialog_background));
+        }
+        dialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        dialog.setCancelable(false); //Optional
+        dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation; //Setting the animations to dialog
+
+        Button Okay = dialog.findViewById(R.id.btn_DialogCheckLogin_Login);
+        Button Cancel = dialog.findViewById(R.id.btn_DialogCheckLogin_Cancel);
+
+
+        Okay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                //Toast.makeText(mContext, "Okay", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(mContext, LoginActivity.class);
+                startActivity(intent);
+                dialog.dismiss();
+            }
+        });
+
+        Cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        dialog.show();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        sessionManager = new SessionManager(mContext);
+        Bundle userData = sessionManager.getUserData();
+        if(sessionManager.isLogin()){
+
+        }else {
+            showDialogCheckLogin();
+        }
     }
 }

@@ -80,9 +80,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });*/
 
-        int index= -1; int indexSupportFragment = 1; int indexSearchFragment = 2;
+        int index= -1; int indexSupportFragment = 1; int indexSearchFragment = 2; int indexAccountFragment = 3;
         Intent intent=getIntent();
         index = intent.getIntExtra("index",index);
+
         chipNavigationBar = findViewById(R.id.chipNavigation);
 
         if(index==-1){
@@ -151,6 +152,36 @@ public class MainActivity extends AppCompatActivity {
             chipNavigationBar.setItemSelected(R.id.item_News, true);
             Query query = new Query(intent.getStringExtra("query"));
             getSupportFragmentManager().beginTransaction().replace(R.id.container, new SearchFragment(query)).commit();
+
+            chipNavigationBar.setOnItemSelectedListener(new ChipNavigationBar.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(int i) {
+                    switch (i) {
+                        case R.id.item_Home:
+                            fragment = new HomeFragment();
+                            break;
+                        case R.id.item_Library:
+                            fragment = new LibraryFragment();
+                            break;
+                        case R.id.item_News:
+                            fragment = new SearchFragment();
+                            break;
+                        case R.id.item_Support:
+                            fragment = new SuportFragment();
+                            break;
+                        case R.id.item_Account:
+                            fragment = new AccountFragment();
+                            break;
+                    }
+
+                    if (fragment != null) {
+                        getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment).commit();
+                    }
+                }
+            });
+        }else if(index == indexAccountFragment){
+            chipNavigationBar.setItemSelected(R.id.item_Account, true);
+            getSupportFragmentManager().beginTransaction().replace(R.id.container, new AccountFragment()).commit();
 
             chipNavigationBar.setOnItemSelectedListener(new ChipNavigationBar.OnItemSelectedListener() {
                 @Override

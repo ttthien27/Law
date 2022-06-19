@@ -81,17 +81,27 @@
         <entry key="..\:/Do An/Law/app/src/main/res/drawable/btn_three.xml" value="0.175" />
         <entry key="..\:/Do An/Law/app/src/main/res/drawable/btn_two.xml" value="0.175" />
         <entry key="..\:/Do An/Law/app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.171" />
+        <entry key="..\:/Do An/Law/app/src/main/res/drawable/shadowfile.xml" value="0.2" />
+        <entry key="..\:/Do An/Law/app/src/main/res/drawable/shadowfile_bgorange.xml" value="0.1355" />
         <entry key="..\:/Do An/Law/app/src/main/res/layout/activity_category.xml" value="0.13958333333333334" />
+        <entry key="..\:/Do An/Law/app/src/main/res/layout/activity_change_password.xml" value="0.264" />
         <entry key="..\:/Do An/Law/app/src/main/res/layout/activity_document_view.xml" value="0.13768115942028986" />
         <entry key="..\:/Do An/Law/app/src/main/res/layout/activity_law_title.xml" value="0.25" />
         <entry key="..\:/Do An/Law/app/src/main/res/layout/activity_login.xml" value="0.264" />
         <entry key="..\:/Do An/Law/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Do An/Law/app/src/main/res/layout/activity_most_view.xml" value="0.1171875" />
+        <entry key="..\:/Do An/Law/app/src/main/res/layout/activity_new_document.xml" value="0.20052083333333334" />
         <entry key="..\:/Do An/Law/app/src/main/res/layout/activity_register.xml" value="0.25" />
         <entry key="..\:/Do An/Law/app/src/main/res/layout/activity_search.xml" value="0.4574961360123648" />
+        <entry key="..\:/Do An/Law/app/src/main/res/layout/activity_splash_screen.xml" value="0.2" />
+        <entry key="..\:/Do An/Law/app/src/main/res/layout/activity_verify_phone.xml" value="0.2" />
+        <entry key="..\:/Do An/Law/app/src/main/res/layout/activity_verify_phone_to_change_pass.xml" value="0.25" />
+        <entry key="..\:/Do An/Law/app/src/main/res/layout/activity_verify_phone_to_forgot_pass.xml" value="0.4" />
         <entry key="..\:/Do An/Law/app/src/main/res/layout/custom_dialog_background.xml" value="0.234375" />
-        <entry key="..\:/Do An/Law/app/src/main/res/layout/custom_dialog_layout.xml" value="0.4" />
+        <entry key="..\:/Do An/Law/app/src/main/res/layout/custom_dialog_layout.xml" value="0.264" />
+        <entry key="..\:/Do An/Law/app/src/main/res/layout/custom_dialog_layout_checklogin.xml" value="0.4" />
         <entry key="..\:/Do An/Law/app/src/main/res/layout/fragment_about.xml" value="0.25" />
-        <entry key="..\:/Do An/Law/app/src/main/res/layout/fragment_account.xml" value="0.4" />
+        <entry key="..\:/Do An/Law/app/src/main/res/layout/fragment_account.xml" value="0.264" />
         <entry key="..\:/Do An/Law/app/src/main/res/layout/fragment_categogy.xml" value="0.19739583333333333" />
         <entry key="..\:/Do An/Law/app/src/main/res/layout/fragment_category.xml" value="0.264" />
         <entry key="..\:/Do An/Law/app/src/main/res/layout/fragment_category2.xml" value="0.19739583333333333" />
@@ -104,8 +114,11 @@
         <entry key="..\:/Do An/Law/app/src/main/res/layout/fragment_search.xml" value="0.264" />
         <entry key="..\:/Do An/Law/app/src/main/res/layout/fragment_seen.xml" value="0.22826086956521738" />
         <entry key="..\:/Do An/Law/app/src/main/res/layout/fragment_suport.xml" value="0.234375" />
-        <entry key="..\:/Do An/Law/app/src/main/res/layout/item_document.xml" value="0.5072727272727273" />
-        <entry key="..\:/Do An/Law/app/src/main/res/layout/item_document_search.xml" value="0.49169435215946844" />
+        <entry key="..\:/Do An/Law/app/src/main/res/layout/item_document.xml" value="0.16145833333333334" />
+        <entry key="..\:/Do An/Law/app/src/main/res/layout/item_document_follow.xml" value="0.34775888717156106" />
+        <entry key="..\:/Do An/Law/app/src/main/res/layout/item_document_mostview.xml" value="0.4636363636363636" />
+        <entry key="..\:/Do An/Law/app/src/main/res/layout/item_document_new.xml" value="0.536" />
+        <entry key="..\:/Do An/Law/app/src/main/res/layout/item_document_search.xml" value="0.24559859154929578" />
         <entry key="..\:/Do An/Law/app/src/main/res/layout/item_lawtitle.xml" value="0.25" />
         <entry key="..\:/Do An/Law/app/src/main/res/menu/nav_item.xml" value="0.264" />
         <entry key="..\:/Do An/PhapLuat/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />

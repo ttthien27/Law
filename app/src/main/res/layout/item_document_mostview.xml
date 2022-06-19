@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/layout_ItemDocment">
+    android:id="@+id/layout_ItemDocmentMostView">
 
     <androidx.cardview.widget.CardView
         android:elevation="5dp"
@@ -39,13 +39,36 @@
                             android:layout_marginTop="5dp"
                             android:layout_marginBottom="5dp"
                             android:layout_gravity="center_vertical"
-                            android:id="@+id/tv_title"
+                            android:id="@+id/tv_ItemDocMostView_Title"
                             android:layout_width="wrap_content"
                             android:layout_height="30dp"
                             android:textColor="@color/black"
                             android:textSize="18dp"
                             android:gravity="center_vertical"
                             android:text="NGHỊ"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        app:cardCornerRadius="5dp"
+                        android:layout_width="130dp"
+                        android:orientation="horizontal"
+                        android:layout_gravity="center"
+                        android:gravity="center_horizontal"
+                        android:layout_marginLeft="140dp"
+                        android:layout_height="30dp">
+                        <TextView
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginRight="8dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_gravity="center_vertical"
+                            android:id="@+id/tv_ItemDocMostView_View"
+                            android:layout_width="wrap_content"
+                            android:layout_height="30dp"
+                            android:textColor="@color/black"
+                            android:textSize="18dp"
+                            android:gravity="center_vertical"
+                            android:text="Lượt xem: 222"/>
                     </LinearLayout>
 
                 </LinearLayout>
@@ -62,7 +85,7 @@
                     android:layout_marginRight="10dp"
                     android:layout_marginBottom="10dp">
                     <com.codesgood.views.JustifiedTextView
-                        android:id="@+id/tv_name"
+                        android:id="@+id/tv_ItemDocMostView_Des"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textColor="#6003082b"

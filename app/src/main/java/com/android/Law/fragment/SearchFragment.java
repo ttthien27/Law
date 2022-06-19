@@ -33,6 +33,9 @@ import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -115,9 +118,9 @@ public class SearchFragment extends Fragment {
         linearLayoutManager = new LinearLayoutManager(mContext);
         edt_Search = view.findViewById(R.id.edt_Search_Search);
         btnSearch = view.findViewById(R.id.imgBtn_Search);
-        recyclerSearch = view.findViewById(R.id.rv_Search_Document);
         progressBar = view.findViewById(R.id.proB_Search);
         progressBar.setVisibility(View.GONE);
+        recyclerSearch = view.findViewById(R.id.rv_Search_Document);
         recyclerSearch.setLayoutManager(linearLayoutManager);
 
         Toolbar toolbar = view.findViewById(R.id.toolbar_Search);
@@ -148,8 +151,6 @@ public class SearchFragment extends Fragment {
                         Log.d("Activity", "--------------: đang chờ");
                     }*/
                     //list = getListDocument(arrayS);
-
-
                     clickCallAPIShowDocument();
 
                 }

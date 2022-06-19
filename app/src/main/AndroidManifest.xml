@@ -23,6 +23,30 @@
         android:theme="@style/Theme.Law"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".activity.NewDocumentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.VerifyPhoneToForgotPassActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.VerifyPhoneToChangePassActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.TestFirebaseActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.MostViewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.ChangePasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.VerifyPhoneActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.LawTitleActivity"
             android:exported="false" />
         <activity
@@ -43,7 +67,9 @@
         <activity
             android:name=".activity.LoginActivity"
             android:exported="false" />
-        <activity android:name=".activity.MainActivity">
+        <activity
+            android:name=".activity.SplashScreenActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

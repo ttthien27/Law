@@ -58,10 +58,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
                 android:background="@drawable/btn_bg_account_two"
-                android:text="Cập nhật"/>
+                android:text="Chỉnh sửa"/>
 
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_Account_ChangePass"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="25dp"
@@ -124,6 +125,7 @@
                 android:text="Cài đặt" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_Account_Logout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"

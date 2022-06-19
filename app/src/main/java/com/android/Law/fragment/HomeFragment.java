@@ -31,7 +31,10 @@ import com.android.Law.activity.DocumentViewActivity;
 import com.android.Law.activity.LawTitleActivity;
 import com.android.Law.activity.LoginActivity;
 import com.android.Law.activity.MainActivity;
+import com.android.Law.activity.MostViewActivity;
+import com.android.Law.activity.NewDocumentActivity;
 import com.android.Law.activity.SearchActivity;
+import com.android.Law.activity.TestFirebaseActivity;
 import com.android.Law.activity.TestWebServiceActivity;
 import com.android.Law.adapter.DocumentAdapter;
 import com.android.Law.models.Document;
@@ -187,7 +190,8 @@ public class HomeFragment extends Fragment {
     private void btnNews(){
         //Intent intent = new Intent(getActivity(),LoginActivity.class);
         //startActivity(intent);
-        dialog = new Dialog(mContext);
+
+        /*dialog = new Dialog(mContext);
         dialog.setContentView(R.layout.custom_dialog_layout);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             dialog.getWindow().setBackgroundDrawable(getActivity().getDrawable(R.drawable.custom_dialog_background));
@@ -209,7 +213,10 @@ public class HomeFragment extends Fragment {
         });
 
 
-        dialog.show();
+        dialog.show();*/
+
+        Intent intent = new Intent(getActivity(), NewDocumentActivity.class);
+        startActivity(intent);
     }
 
     private void btnSearch(){
@@ -220,7 +227,8 @@ public class HomeFragment extends Fragment {
     }
 
     private void btnMore(){
-        Intent intent = new Intent(getActivity(), DocumentViewActivity.class);
+        //Intent intent = new Intent(getActivity(), MostViewActivity.class);
+        Intent intent = new Intent(getActivity(), TestFirebaseActivity.class);
         startActivity(intent);
     }
 
@@ -243,10 +251,10 @@ public class HomeFragment extends Fragment {
     private List<Document> getListDocument() {
 
         List<Document> list = new ArrayList<>();
-        list.add(new Document("1","NGHỊ ĐỊNH","Quyết định 24/QĐ-UBQGCĐS năm 2022 Quy chế hoạt động của Ủy ban Quốc gia về chuyển đổi số"));
-        list.add(new Document("2","NGHỊ ĐỊNH","Quyết định 24/QĐ-UBQGCĐS năm 2022 Quy chế hoạt động của Ủy ban Quốc gia về chuyển đổi số"));
-        list.add(new Document("3","NGHỊ ĐỊNH","Quyết định 24/QĐ-UBQGCĐS năm 2022 Quy chế hoạt động của Ủy ban Quốc gia về chuyển đổi số"));
-        list.add(new Document("4","NGHỊ ĐỊNH","Quyết định 24/QĐ-UBQGCĐS năm 2022 Quy chế hoạt động của Ủy ban Quốc gia về chuyển đổi số"));
+        list.add(new Document("99990","https://thuvienphapluat.vn/van-ban/Thuong-mai/Thong-bao-176-TB-VPCP-2022-ket-luan-tai-buoi-lam-viec-voi-lanh-dao-Son-La-517695.aspx","THÔNG BÁO","KẾT LUẬN CỦA THỦ TƯỚNG CHÍNH PHỦ PHẠM MINH CHÍNH TẠI BUỔI LÀM VIỆC VỚI LÃNH ĐẠO TỈNH SƠN LA"));
+        list.add(new Document("99991","https://thuvienphapluat.vn/van-ban/The-thao-Y-te/Quyet-dinh-1577-QD-BYT-2022-Ke-hoach-thuc-hien-Quyet-dinh-2215-QD-TTg-517660.aspx","QUYẾT ĐỊNH","PHÊ DUYỆT KẾ HOẠCH TRIỂN KHAI THỰC HIỆN QUYẾT ĐỊNH SỐ 2215/QĐ-TTG NGÀY 28/12/2021 CỦA THỦ TƯỚNG CHÍNH PHỦ VỀ VIỆC BAN HÀNH KẾ HOẠCH HÀNH ĐỘNG QUỐC GIA KHẮC PHỤC HẬU QUẢ CHẤT ĐỘC HÓA HỌC/DIOXIN SAU CHIẾN TRANH Ở VIỆT NAM CỦA BỘ Y TẾ GIAI ĐOẠN 2022-2030"));
+        list.add(new Document("99992","https://thuvienphapluat.vn/van-ban/The-thao-Y-te/Quyet-dinh-1571-QD-BYT-2022-tai-lieu-huong-dan-theo-doi-do-me-an-than-bang-dien-nao-so-hoa-517631.aspx","QUYẾT ĐỊNH","VỀ VIỆC BAN HÀNH TÀI LIỆU “HƯỚNG DẪN QUY TRÌNH KỸ THUẬT THEO DÕI ĐỘ MÊ, AN THẦN TRONG GÂY MÊ HỒI SỨC VÀ HỒI SỨC TÍCH CỰC BẰNG ĐIỆN NÃO SỐ HÓA (BAO GỒM BIS, ENTROPY VÀ CÁC THIẾT BỊ CÓ CÔNG DỤNG TƯƠNG ĐƯƠNG)”"));
+        list.add(new Document("99993","https://thuvienphapluat.vn/van-ban/Bo-may-hanh-chinh/Quyet-dinh-1310-QD-BTNMT-2022-cong-bo-thu-tuc-hanh-chinh-dia-chat-va-khoang-san-517615.aspx","QUYẾT ĐỊNH","VỀ VIỆC CÔNG BỐ THỦ TỤC HÀNH CHÍNH BỊ BÃI BỎ TRONG LĨNH VỰC ĐỊA CHẤT VÀ KHOÁNG SẢN THUỘC PHẠM VI CHỨC NĂNG QUẢN LÝ CỦA BỘ TÀI NGUYÊN VÀ MÔI TRƯỜNG"));
         return list;
     }
 

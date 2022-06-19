@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/back_bg"
+    android:orientation="vertical"
+    tools:context=".activity.VerifyPhoneToChangePassActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="150dp"
+        android:fontFamily="@font/nunito_bold"
+        android:text="XÁC THỰC SỐ ĐIỆN THOẠI"
+        android:textSize="25dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center">
+
+
+        <TextView
+            android:id="@+id/tv_verify_phone_changePass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunito_bold"
+            android:hint="866-788-634"
+            android:inputType="number"
+            android:textColor="#000000"
+            android:textSize="24sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center">
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/edtNum1_changePass"
+            android:layout_width="40dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="4dp"
+            android:gravity="center"
+            android:imeOptions="actionNext"
+            android:importantForAutofill="no"
+            android:inputType="number"
+            android:maxLength="1"
+            android:textColor="#000000"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            tools:ignore="LabelFor" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/edtNum2_changePass"
+            android:layout_width="40dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="4dp"
+            android:gravity="center"
+            android:imeOptions="actionNext"
+            android:importantForAutofill="no"
+            android:inputType="number"
+            android:maxLength="1"
+            android:textColor="#000000"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            tools:ignore="LabelFor" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/edtNum3_changePass"
+            android:layout_width="40dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="4dp"
+            android:gravity="center"
+            android:imeOptions="actionNext"
+            android:importantForAutofill="no"
+            android:inputType="number"
+            android:maxLength="1"
+            android:textColor="#000000"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            tools:ignore="LabelFor" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/edtNum4_changePass"
+            android:layout_width="40dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="4dp"
+            android:gravity="center"
+            android:imeOptions="actionNext"
+            android:importantForAutofill="no"
+            android:inputType="number"
+            android:maxLength="1"
+            android:textColor="#000000"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            tools:ignore="LabelFor" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/edtNum5_changePass"
+            android:layout_width="40dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="4dp"
+            android:gravity="center"
+            android:imeOptions="actionNext"
+            android:importantForAutofill="no"
+            android:inputType="number"
+            android:maxLength="1"
+            android:textColor="#000000"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            tools:ignore="LabelFor" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/edtNum6_changePass"
+            android:layout_width="40dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="4dp"
+            android:gravity="center"
+            android:imeOptions="actionNext"
+            android:importantForAutofill="no"
+            android:inputType="number"
+            android:maxLength="1"
+            android:textColor="#000000"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            tools:ignore="LabelFor" />
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnSendOTP_changePass"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/blue_fill__rounded_color"
+        android:text="Nhận mã OTP" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnVerify_changePass"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/blue_fill__rounded_color"
+        android:text="Xác thực" />
+
+</LinearLayout>

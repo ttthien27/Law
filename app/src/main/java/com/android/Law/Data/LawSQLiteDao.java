@@ -5,11 +5,15 @@ import static com.android.Law.Data.LawSQLiteContract.TableDocumentEntry;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteReadOnlyDatabaseException;
+import android.util.Log;
 
 import com.android.Law.models.Document;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class LawSQLiteDao {
@@ -55,6 +59,7 @@ public class LawSQLiteDao {
             }while (cursor.moveToNext());
         }
         db.close();
+        Collections.reverse(documentList);
         return  documentList;
     }
 
@@ -73,6 +78,7 @@ public class LawSQLiteDao {
             }while (cursor.moveToNext());
         }
         db.close();
+        Collections.reverse(documentList);
         return  documentList;
     }
 
@@ -88,7 +94,7 @@ public class LawSQLiteDao {
         return  (row>0);
     }
 
-    public  static boolean addDocumentSeen(Context context,Document document){
+    public static boolean addDocumentSeen(Context context,Document document){
         SQLiteDatabase db = LawSQLiteDbHelper.getWriteableDatabase(context);
         ContentValues values = new ContentValues();
         values.put(TableDocumentEntry.COLUMNS_DOC_ID, document.getDocId());
@@ -100,16 +106,58 @@ public class LawSQLiteDao {
         return  (row>0);
     }
 
-    public static boolean deleteDocumentFollow(Context context,String docId){
+    public boolean deleteDocumentFollow(Context context,String docId){
         SQLiteDatabase db = LawSQLiteDbHelper.getWriteableDatabase(context);
         int row = db.delete(TableDocumentEntry.TABLE_NAME_FOLLOW,TableDocumentEntry.COLUMNS_DOC_ID+"=?",new String[] {docId});
         return (row>0);
     }
 
-    public static boolean deleteDocumentSeen(Context context,String docId){
+    public boolean deleteDocumentSeen(Context context,String docId){
         SQLiteDatabase db = LawSQLiteDbHelper.getWriteableDatabase(context);
         int row = db.delete(TableDocumentEntry.TABLE_NAME_SEEN,TableDocumentEntry.COLUMNS_DOC_ID+"=?",new String[] {docId});
         return (row>0);
+    }
+
+    public static boolean checkExistDocumentFollow(Context context,String docId){
+        try {
+            SQLiteDatabase db = LawSQLiteDbHelper.getWriteableDatabase(context);
+            String query = " SELECT  * FROM " + TableDocumentEntry.TABLE_NAME_FOLLOW + " WHERE " + TableDocumentEntry.COLUMNS_DOC_ID + "=? ";
+            Cursor cursor = db.rawQuery(query, new String[]{docId});
+            try {
+                if (cursor.getCount() > 0) {
+                    return true;
+                } else {
+                    return false;
+                }
+            } catch (SQLException es) {
+                Log.d("SQLiteDao", "checkExistDocumentFollow: "+es);
+            }
+        }catch (SQLiteReadOnlyDatabaseException e)
+        {
+            Log.d("SQLiteDao", "checkExistDocumentFollow: "+e);
+        }
+        return  false;
+    }
+
+    public static boolean checkExistDocumentSeen(Context context,String docId){
+        try {
+            SQLiteDatabase db = LawSQLiteDbHelper.getWriteableDatabase(context);
+            String query = " SELECT  * FROM " + TableDocumentEntry.TABLE_NAME_SEEN + " WHERE " + TableDocumentEntry.COLUMNS_DOC_ID + "=? ";
+            Cursor cursor = db.rawQuery(query, new String[]{docId});
+            try {
+                if (cursor.getCount() > 0) {
+                    return true;
+                } else {
+                    return false;
+                }
+            } catch (SQLException es) {
+                Log.d("SQLiteDao", "checkExistDocumentFollow: "+es);
+            }
+        }catch (SQLiteReadOnlyDatabaseException e)
+        {
+            Log.d("SQLiteDao", "checkExistDocumentFollow: "+e);
+        }
+        return  false;
     }
 
 }
