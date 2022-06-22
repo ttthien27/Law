@@ -141,7 +141,7 @@ public class HomeFragment extends Fragment {
         btn_LatestDoc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                btnNews();
+                btnNewDocument();
             }
         });
 
@@ -187,11 +187,16 @@ public class HomeFragment extends Fragment {
         return view;
     }
 
+    private void btnNewDocument(){
+        Intent intent = new Intent(getActivity(), NewDocumentActivity.class);
+        startActivity(intent);
+    }
+
     private void btnNews(){
         //Intent intent = new Intent(getActivity(),LoginActivity.class);
         //startActivity(intent);
 
-        /*dialog = new Dialog(mContext);
+        dialog = new Dialog(mContext);
         dialog.setContentView(R.layout.custom_dialog_layout);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             dialog.getWindow().setBackgroundDrawable(getActivity().getDrawable(R.drawable.custom_dialog_background));
@@ -207,16 +212,15 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                Toast.makeText(mContext, "Okay", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(mContext, "Okay", Toast.LENGTH_SHORT).show();
                 dialog.dismiss();
             }
         });
 
 
-        dialog.show();*/
+        dialog.show();
 
-        Intent intent = new Intent(getActivity(), NewDocumentActivity.class);
-        startActivity(intent);
+
     }
 
     private void btnSearch(){
@@ -227,8 +231,8 @@ public class HomeFragment extends Fragment {
     }
 
     private void btnMore(){
-        //Intent intent = new Intent(getActivity(), MostViewActivity.class);
-        Intent intent = new Intent(getActivity(), TestFirebaseActivity.class);
+        Intent intent = new Intent(getActivity(), MostViewActivity.class);
+        //Intent intent = new Intent(getActivity(), TestFirebaseActivity.class);
         startActivity(intent);
     }
 

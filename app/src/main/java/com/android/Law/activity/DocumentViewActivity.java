@@ -18,95 +18,32 @@ import android.widget.Toast;
 
 import com.android.Law.Data.LawSQLiteDao;
 import com.android.Law.R;
+import com.android.Law.firebase.DocumentRequester;
+import com.android.Law.firebase.LawDatabaseContract;
+import com.android.Law.firebase.UserAccountsRequester;
 import com.android.Law.models.Document;
+import com.android.Law.models.DocumentMostView;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 import com.krishna.fileloader.FileLoader;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class DocumentViewActivity extends AppCompatActivity {
 
     private Document documentInView;
     private LawSQLiteDao sqliteDAO;
+    private DocumentRequester documentRequester;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_document_view);
 
-        /*WebView webView = findViewById(R.id.webview);
-        webView.setWebViewClient(new WebViewClient());
-        webView.getSettings().setSupportZoom(true);
-        webView.getSettings().setJavaScriptEnabled(true);
-        webView.loadUrl("https://drive.google.com/file/d/1m4qWzuiLnbkTJTAO12_j5YQSCuqM4cXp/view?usp=sharing");
-        //webView.loadUrl("https://drive.google.com/file/d/1m4qWzuiLnbkTJTAO12_j5YQSCuqM4cXp/view?usp=viewer");*/
-
-        /*PDFView pdfView = findViewById(R.id.pdfvewer);
-        ProgressBar progressBar = findViewById(R.id.progressbar);
-        Toolbar toolbar = findViewById(R.id.toolbar_DocumentView);
-        setSupportActionBar(toolbar);
-
-        progressBar.setVisibility(View.VISIBLE);
-
-        FileLoader.with(this)
-                .load("https://dl.dropboxusercontent.com/s/k5lacsmizip7ze1/24_QD-UBQGCDS_505327.pdf?dl=0")
-                .fromDirectory("PDFFiles",FileLoader.DIR_INTERNAL)
-                .asFile(new FileRequestListener<File>() {
-                    @Override
-                    public void onLoad(FileLoadRequest request, FileResponse<File> response) {
-                        progressBar.setVisibility(View.GONE);
-
-                        File pdfFile = response.getBody();
-                        pdfView.fromFile(pdfFile)
-                                .password(null)
-                                .defaultPage(0)
-                                .enableSwipe(true)
-                                .swipeHorizontal(false)
-                                .enableDoubletap(true)
-                                .onDraw((canvas, pageWidth, pageHeight, displayedPage) -> {
-
-                                })
-                                .onDrawAll((canvas, pageWidth, pageHeight, displayedPage) -> {
-
-                                })
-                                .onPageError((page, t1) -> {
-                                    Toast.makeText(DocumentViewActivity.this,"Lỗi"+page,Toast.LENGTH_SHORT).show();
-                                })
-                                .onPageChange(new OnPageChangeListener() {
-                                    @Override
-                                    public void onPageChanged(int page, int pageCount) {
-
-                                    }
-                                })
-                                .onTap(new OnTapListener() {
-                                    @Override
-                                    public boolean onTap(MotionEvent e) {
-                                        return true;
-                                    }
-                                })
-                                .onRender(new OnRenderListener() {
-                                    @Override
-                                    public void onInitiallyRendered(int nbPages, float pageWidth, float pageHeight) {
-                                        pdfView.fitToWidth();
-                                    }
-                                })
-                                .enableAnnotationRendering(true)
-                                .invalidPageColor(Color.WHITE)
-                                .load();
-                    }
-
-                    @Override
-                    public void onError(FileLoadRequest request, Throwable t) {
-                        Toast.makeText(DocumentViewActivity.this,""+t.getMessage(),Toast.LENGTH_SHORT).show();
-                        progressBar.setVisibility(View.GONE);
-
-
-                    }
-                });*/
-
-        /*try {
-            FileLoader.deleteWith(this).fromDirectory("PDFFiles", FileLoader.DIR_INTERNAL).deleteAllFiles();
-            Log.d("DocumentViewActivity.this", "--------------: Xóa pdf");
-        } catch (Exception e) {
-            e.printStackTrace();
-            Log.d("DocumentViewActivity.this", "--------------: Ko xóa đc pdf");
-        }*/
 
         Bundle bundle = getIntent().getExtras();
         if(bundle==null){
@@ -115,6 +52,44 @@ public class DocumentViewActivity extends AppCompatActivity {
 
         documentInView = (Document) bundle.get("document");
         sqliteDAO = new LawSQLiteDao(DocumentViewActivity.this, false);
+
+        FirebaseDatabase database = FirebaseDatabase.getInstance("https://appphapluat-default-rtdb.asia-southeast1.firebasedatabase.app");
+        DatabaseReference myRef = database.getReference();
+        List<DocumentMostView> listDocumentViewTop = new ArrayList<DocumentMostView>();
+        DatabaseReference databaseReference = myRef.child(LawDatabaseContract.DocumentEntry.ROOT_NAME_TOP);
+        Query query = databaseReference;
+        query.addValueEventListener(new ValueEventListener()  {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()){
+                    for (DataSnapshot dataSnapshot : snapshot.getChildren()){
+                        String key = snapshot.getKey();
+                        DocumentMostView doc;
+                        String id =dataSnapshot.child(LawDatabaseContract.DocumentEntry.ID_ARM).getValue(String.class);
+                        String url =dataSnapshot.child(LawDatabaseContract.DocumentEntry.URL_ARM).getValue(String.class);
+                        String title =dataSnapshot.child(LawDatabaseContract.DocumentEntry.TITLE_ARM).getValue(String.class);
+                        String description =dataSnapshot.child(LawDatabaseContract.DocumentEntry.DESCRIPTION_ARM).getValue(String.class);
+                        int view = dataSnapshot.child(LawDatabaseContract.DocumentEntry.VIEW_ARM).getValue(int.class);
+                        doc = new DocumentMostView(id,url,title,description,view);
+                        listDocumentViewTop.add(doc);
+                    }
+                    documentRequester = new DocumentRequester();
+                    documentRequester.updateUserAccount(new DocumentMostView(
+                            documentInView.getDocId(),documentInView.getDocUrl(),documentInView.getDocTitle(),documentInView.getDocDescription(),0
+                    ));
+                    Log.d("firebase", "onDataChange: ");
+                }else {
+                    Log.d("firebase", "onDataChange: ");
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.d("firebase", "onDataChange: ");
+            }
+        });
+
+
 
         if(!LawSQLiteDao.checkExistDocumentSeen(DocumentViewActivity.this,documentInView.getDocId())){
             boolean result = LawSQLiteDao.addDocumentSeen(DocumentViewActivity.this,documentInView);
@@ -140,6 +115,8 @@ public class DocumentViewActivity extends AppCompatActivity {
                 Toast.makeText(DocumentViewActivity.this,"Lỗi khi thêm danh sách đã xem",Toast.LENGTH_LONG).show();
             }
         }
+
+
 
 
 

@@ -59,6 +59,11 @@ public class LawDatabaseContract {
         static public final String ROOT_NAME = "documents";
 
         /**
+         * Name of the root of database entry for User
+         */
+        static public final String ROOT_NAME_TOP = "documents_top10";
+
+        /**
          * id of the document
          * <p>
          * Type: String
